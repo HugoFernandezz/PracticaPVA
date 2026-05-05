@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace PF26_48848727Q_24470742F_77658838M_54800134N
 {
-    public partial class Form1 : Form
+    public partial class FormLaboratorio : Form
     {
-        public Form1()
+        public FormLaboratorio()
         {
             InitializeComponent();
         }
+
+     
     }
 }

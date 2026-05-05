@@ -16,7 +16,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FormLaboratorio());
         }
     }
 }
