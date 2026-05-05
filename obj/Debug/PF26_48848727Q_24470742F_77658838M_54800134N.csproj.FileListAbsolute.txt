@@ -28,3 +28,5 @@ C:\Users\hugaz\Documents\PracticaPVA\obj\Debug\PF26_48848727Q_24470742F_77658838
 C:\Users\hugaz\Documents\PracticaPVA\obj\Debug\PF26_48848727Q_24470742F_77658838M_54800134N.csproj.CoreCompileInputs.cache
 C:\Users\hugaz\Documents\PracticaPVA\obj\Debug\PF26_48848727Q_24470742F_77658838M_54800134N.exe
 C:\Users\hugaz\Documents\PracticaPVA\obj\Debug\PF26_48848727Q_24470742F_77658838M_54800134N.pdb
+C:\Users\natal\PracticaPVA\obj\Debug\PF26_48848727Q_24470742F_77658838M_54800134N.exe.config
+C:\Users\natal\PracticaPVA\obj\Debug\PF26_48848727Q_24470742F_77658838M_54800134N.FormLaboratorio.resources

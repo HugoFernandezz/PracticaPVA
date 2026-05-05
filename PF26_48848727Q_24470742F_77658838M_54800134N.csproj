@@ -49,6 +49,7 @@
     <Compile Include="CircularProgresBar.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Envase.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
