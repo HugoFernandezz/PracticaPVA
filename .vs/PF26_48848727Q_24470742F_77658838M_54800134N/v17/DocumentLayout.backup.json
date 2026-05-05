@@ -3,15 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\natal\\PracticaPVA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\natal\\PracticaPVA\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\envase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\natal\\PracticaPVA\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\natal\\PracticaPVA\\envase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:envase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,30 +38,29 @@
               "RelativeToolTip": "Envase.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-05T20:34:13.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-05T20:34:13.113Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAALwAAAAAAAAAAAAuwMwAAAAlAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Form1.cs*",
+              "RelativeToolTip": "Form1.cs*",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAAAMwAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-05T18:13:25.304Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Form1.cs [Dise\u00F1o]*",
+              "RelativeToolTip": "Form1.cs [Dise\u00F1o]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-05T14:17:58.904Z",
               "EditorCaption": " [Dise\u00F1o]"

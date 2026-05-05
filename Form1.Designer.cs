@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelGrafica = new System.Windows.Forms.Panel();
+            this.circularProgresBar = new PF26_48848727Q_24470742F_77658838M_54800134N.CircularProgresBar();
             this.label6 = new System.Windows.Forms.Label();
             this.panelCoste = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -72,10 +73,9 @@
             this.lblNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panelEnvase = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.circularProgresBar = new PF26_48848727Q_24470742F_77658838M_54800134N.CircularProgresBar();
             this.listViewEnvases = new System.Windows.Forms.ListView();
             this.imageListEnvases = new System.Windows.Forms.ImageList(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panelGrafica.SuspendLayout();
             this.panelCoste.SuspendLayout();
@@ -127,6 +127,20 @@
             this.panelGrafica.Name = "panelGrafica";
             this.panelGrafica.Size = new System.Drawing.Size(240, 165);
             this.panelGrafica.TabIndex = 6;
+            // 
+            // circularProgresBar
+            // 
+            this.circularProgresBar.BaseColor = System.Drawing.Color.LightGray;
+            this.circularProgresBar.LineWidth = 10;
+            this.circularProgresBar.Location = new System.Drawing.Point(59, 43);
+            this.circularProgresBar.Margin = new System.Windows.Forms.Padding(4);
+            this.circularProgresBar.Maximum = 100;
+            this.circularProgresBar.Name = "circularProgresBar";
+            this.circularProgresBar.ProgressColor = System.Drawing.Color.DodgerBlue;
+            this.circularProgresBar.Size = new System.Drawing.Size(133, 110);
+            this.circularProgresBar.TabIndex = 4;
+            this.circularProgresBar.Text = "circularProgresBar1";
+            this.circularProgresBar.Value = 0;
             // 
             // label6
             // 
@@ -596,30 +610,6 @@
             this.panelEnvase.Size = new System.Drawing.Size(316, 354);
             this.panelEnvase.TabIndex = 1;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(227, 27);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "1. Seleccionar envase";
-            // 
-            // circularProgresBar
-            // 
-            this.circularProgresBar.BaseColor = System.Drawing.Color.LightGray;
-            this.circularProgresBar.LineWidth = 10;
-            this.circularProgresBar.Location = new System.Drawing.Point(59, 43);
-            this.circularProgresBar.Margin = new System.Windows.Forms.Padding(4);
-            this.circularProgresBar.Maximum = 100;
-            this.circularProgresBar.Name = "circularProgresBar";
-            this.circularProgresBar.ProgressColor = System.Drawing.Color.DodgerBlue;
-            this.circularProgresBar.Size = new System.Drawing.Size(133, 110);
-            this.circularProgresBar.TabIndex = 4;
-            this.circularProgresBar.Text = "circularProgresBar1";
-            this.circularProgresBar.Value = 0;
-            // 
             // listViewEnvases
             // 
             this.listViewEnvases.HideSelection = false;
@@ -644,6 +634,16 @@
             this.imageListEnvases.Images.SetKeyName(6, "Captura de pantalla 2026-05-05 225947.png");
             this.imageListEnvases.Images.SetKeyName(7, "Captura de pantalla 2026-05-05 225959.png");
             this.imageListEnvases.Images.SetKeyName(8, "Captura de pantalla 2026-05-05 230007.png");
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(227, 27);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "1. Seleccionar envase";
             // 
             // FormLaboratorio
             // 
