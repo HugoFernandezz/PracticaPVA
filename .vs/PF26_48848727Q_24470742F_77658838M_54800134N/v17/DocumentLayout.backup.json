@@ -1,17 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\natal\\PracticaPVA\\",
+  "WorkspaceRootPath": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\hugaz\\documents\\practicapva\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\natal\\PracticaPVA\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\hugaz\\Documents\\PracticaPVA\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\natal\\PracticaPVA\\envase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\hugaz\\documents\\practicapva\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\hugaz\\Documents\\PracticaPVA\\envase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:envase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -25,16 +29,25 @@
           "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Form1.Designer.cs*",
+              "RelativeToolTip": "Form1.Designer.cs*",
+              "ViewState": "AgIAANAAAAAAAAAAAIAwwOIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-06T10:54:34.916Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Envase.cs",
-              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Envase.cs",
+              "DocumentMoniker": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Envase.cs",
               "RelativeDocumentMoniker": "Envase.cs",
-              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Envase.cs",
+              "ToolTip": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Envase.cs",
               "RelativeToolTip": "Envase.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -44,11 +57,11 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Form1.cs*",
+              "ToolTip": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Form1.cs*",
               "RelativeToolTip": "Form1.cs*",
-              "ViewState": "AgIAAL0AAAAAAAAAAAAAAMwAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAALQAAAAAAAAAAAApwMQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-05T18:13:25.304Z",
               "EditorCaption": ""
@@ -56,14 +69,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Form1.cs",
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Form1.cs [Dise\u00F1o]*",
-              "RelativeToolTip": "Form1.cs [Dise\u00F1o]*",
+              "ToolTip": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Form1.cs [Design]*",
+              "RelativeToolTip": "Form1.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-05T14:17:58.904Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "EditorCaption": " [Design]"
             }
           ]
         }
