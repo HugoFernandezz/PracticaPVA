@@ -27,29 +27,32 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             ListViewItem envase1 = new ListViewItem("20mL Vial Minimalista\n5,50€", 0);
             envase1.Tag = 20;
 
-            ListViewItem envase2 = new ListViewItem("30mL Cubo Modernista\n9,80€", 0);
+            ListViewItem envase2 = new ListViewItem("30mL Cubo Modernista\n9,80€", 1);
             envase2.Tag = 30;
 
-            ListViewItem envase3 = new ListViewItem("30mL Gota Orgánica\n12,40€", 0);
+            ListViewItem envase3 = new ListViewItem("30mL Gota Orgánica\n12,40€", 2);
             envase3.Tag = 30;
 
-            ListViewItem envase4 = new ListViewItem("50mL Prisma Hexagonal\n18,60€", 0);
+            ListViewItem envase4 = new ListViewItem("50mL Prisma Hexagonal\n18,60€", 3);
             envase4.Tag = 50;
 
-            ListViewItem envase5 = new ListViewItem("50mL Esfera Clásica\n15,90", 0);
+            ListViewItem envase5 = new ListViewItem("50mL Esfera Clásica\n15,90", 4);
             envase5.Tag = 50;
 
-            ListViewItem envase6 = new ListViewItem("50mL Frasco de Botica\n10, 20€", 0);
+            ListViewItem envase6 = new ListViewItem("50mL Frasco de Botica\n10, 20€", 5);
             envase6.Tag = 50;
 
-            ListViewItem envase7 = new ListViewItem("100mL Torre Estilizada\n24,50€", 0);
+            ListViewItem envase7 = new ListViewItem("100mL Torre Estilizada\n24,50€", 6);
             envase7.Tag = 100;
 
-            ListViewItem envase8 = new ListViewItem("100mL Óvalo Ergonómico\n21,80€", 0);
+            ListViewItem envase8 = new ListViewItem("100mL Óvalo Ergonómico\n21,80€", 7);
             envase8.Tag = 100;
 
-            ListViewItem envase9 = new ListViewItem("100mL Bloque de Lujo\n32€", 0);
+            ListViewItem envase9 = new ListViewItem("100mL Bloque de Lujo\n32€", 8);
             envase9.Tag = 100;
+
+            ListViewItem envase10 = new ListViewItem("200mL Bloque de Lujo\n50€", 9);
+            envase10.Tag = 100;
 
             listViewEnvases.Items.Add(envase1);
             listViewEnvases.Items.Add(envase2);
@@ -60,6 +63,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             listViewEnvases.Items.Add(envase7);
             listViewEnvases.Items.Add(envase8);
             listViewEnvases.Items.Add(envase9);
+            listViewEnvases.Items.Add(envase10);
 
         }
 
@@ -199,6 +203,8 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                 int capacidadMl = (int)listViewEnvases.SelectedItems[0].Tag;
 
                 circularProgresBar.Maximum = capacidadMl;
+
+                lblCapacidad.Text = "Capacidad del envase (" + capacidadMl + " ml)";
                 actualizarProgreso();
             }
         }
@@ -249,5 +255,6 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             numericUDBergamota.Value = 0;
             actualizarProgreso();
         }
+
     }
 }
