@@ -67,9 +67,9 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         {
             int suma = trackBarAlcohol.Value + trackBarLavanda.Value + trackBarSandalo.Value + trackBarBergamota.Value;
 
-            if (suma > 100)
+            if (suma > 101)
             {
-                trackBarAlcohol.Value -= (suma - 100);
+                trackBarAlcohol.Value -= (suma - 101);
             }
 
             numericUDAlcohol.Value = trackBarAlcohol.Value;
@@ -85,9 +85,9 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         {
             int suma = trackBarAlcohol.Value + trackBarLavanda.Value + trackBarSandalo.Value + trackBarBergamota.Value;
 
-            if (suma > 100)
+            if (suma > 101)
             {
-                trackBarLavanda.Value -= (suma - 100);
+                trackBarLavanda.Value -= (suma - 101);
             }
 
             numericUDLavanda.Value = trackBarLavanda.Value;
@@ -103,9 +103,9 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         {
             int suma = trackBarAlcohol.Value + trackBarLavanda.Value + trackBarSandalo.Value + trackBarBergamota.Value;
 
-            if (suma > 100)
+            if (suma > 101)
             {
-                trackBarSandalo.Value -= (suma - 100);
+                trackBarSandalo.Value -= (suma - 101);
             }
 
             numericUDSandalo.Value = trackBarSandalo.Value;
@@ -121,9 +121,9 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         {
             int suma = trackBarAlcohol.Value + trackBarLavanda.Value + trackBarSandalo.Value + trackBarBergamota.Value;
 
-            if (suma > 100)
+            if (suma > 101)
             {
-                trackBarBergamota.Value -= (suma - 100);
+                trackBarBergamota.Value -= (suma - 101);
             }
 
             numericUDBergamota.Value = trackBarBergamota.Value;
@@ -172,25 +172,22 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             }
         }
 
-        private void progressBar_Click(object sender, EventArgs e)
-        {
-
-        }
 
         public void actualizarProgreso()
         {
             int sumaActual = trackBarAlcohol.Value + trackBarBergamota.Value +
-                      trackBarLavanda.Value + trackBarSandalo.Value;
+                             trackBarLavanda.Value + trackBarSandalo.Value;
 
-            // Actualizamos el nuevo control circular
-            circularProgresBar.Value = sumaActual;
-
-            if (sumaActual > circularProgresBar.Maximum)
+            // Si la suma total intenta superar el 100
+            if (sumaActual > 100)
             {
+                // Topamos el progreso visual en 100 para que no salte error
+                circularProgresBar.Value = 100;
                 circularProgresBar.ProgressColor = Color.Red;
             }
             else
             {
+                circularProgresBar.Value = sumaActual;
                 circularProgresBar.ProgressColor = Color.Green;
             }
         }
@@ -204,6 +201,53 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                 circularProgresBar.Maximum = capacidadMl;
                 actualizarProgreso();
             }
+        }
+
+        private void AjustarExcesoAlSoltar(TrackBar trackBarActual, NumericUpDown numericUDActual)
+        {
+            int suma = trackBarAlcohol.Value + trackBarBergamota.Value +
+                       trackBarLavanda.Value + trackBarSandalo.Value;
+
+            if (suma > 100)
+            {
+                // Le restamos el exceso a la barra específica que el usuario acaba de soltar
+                trackBarActual.Value -= (suma - 100);
+
+                // Actualizamos el control numérico correspondiente
+                numericUDActual.Value = trackBarActual.Value;
+
+                // Devolvemos el color a la normalidad y actualizamos el progreso
+                actualizarProgreso();
+            }
+        }
+
+        private void trackBarAlcohol_MouseUp(object sender, MouseEventArgs e)
+        {
+            AjustarExcesoAlSoltar(trackBarAlcohol, numericUDAlcohol);
+        }
+
+        private void trackBarLavanda_MouseUp(object sender, MouseEventArgs e)
+        {
+            AjustarExcesoAlSoltar(trackBarLavanda, numericUDLavanda);
+        }
+
+        private void trackBarSandalo_MouseUp(object sender, MouseEventArgs e)
+        {
+            AjustarExcesoAlSoltar(trackBarSandalo, numericUDSandalo);
+        }
+
+        private void trackBarBergamota_MouseUp(object sender, MouseEventArgs e)
+        {
+            AjustarExcesoAlSoltar(trackBarBergamota, numericUDBergamota);
+        }
+
+        private void btnReiniciarMezcla_Click(object sender, EventArgs e)
+        {
+            numericUDAlcohol.Value = 0;
+            numericUDLavanda.Value = 0;
+            numericUDSandalo.Value = 0;
+            numericUDBergamota.Value = 0;
+            actualizarProgreso();
         }
     }
 }
