@@ -16,8 +16,10 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         public FormLaboratorio()
         {
             InitializeComponent();
+
             CargarEnvases();
             actualizarProgreso();
+            
         }
 
         private void CargarEnvases()
@@ -69,74 +71,47 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void trackBarAlcohol_Scroll(object sender, EventArgs e)
         {
-            int suma = trackBarAlcohol.Value + trackBarLavanda.Value + trackBarSandalo.Value + trackBarBergamota.Value;
-
-            if (suma > 101)
-            {
-                trackBarAlcohol.Value -= (suma - 101);
-            }
-
-            numericUDAlcohol.Value = trackBarAlcohol.Value;
-            actualizarProgreso();
+            RevisarLimites(trackBarAlcohol, numericUDAlcohol);
         }
 
         private void numericUDAlcohol_ValueChanged(object sender, EventArgs e)
         {
-            trackBarAlcohol.Value = (int)numericUDAlcohol.Value;
+            if (numericUDAlcohol.Value <= trackBarAlcohol.Maximum) trackBarAlcohol.Value = (int)numericUDAlcohol.Value;
+            RevisarLimites(trackBarAlcohol, numericUDAlcohol);
         }
 
         private void trackBarLavanda_Scroll(object sender, EventArgs e)
         {
-            int suma = trackBarAlcohol.Value + trackBarLavanda.Value + trackBarSandalo.Value + trackBarBergamota.Value;
-
-            if (suma > 101)
-            {
-                trackBarLavanda.Value -= (suma - 101);
-            }
-
-            numericUDLavanda.Value = trackBarLavanda.Value;
-            actualizarProgreso();
+           RevisarLimites(trackBarLavanda, numericUDLavanda);
         }
 
         private void numericUDLavanda_ValueChanged(object sender, EventArgs e)
         {
-            trackBarLavanda.Value = (int)numericUDLavanda.Value;
+            if (numericUDLavanda.Value <= trackBarLavanda.Maximum) trackBarLavanda.Value = (int)numericUDLavanda.Value;
+            RevisarLimites(trackBarLavanda, numericUDLavanda);
         }
 
         private void trackBarSandalo_Scroll(object sender, EventArgs e)
         {
-            int suma = trackBarAlcohol.Value + trackBarLavanda.Value + trackBarSandalo.Value + trackBarBergamota.Value;
-
-            if (suma > 101)
-            {
-                trackBarSandalo.Value -= (suma - 101);
-            }
-
-            numericUDSandalo.Value = trackBarSandalo.Value;
-            actualizarProgreso();
+            RevisarLimites(trackBarSandalo, numericUDSandalo);
         }
 
         private void numericUDSandalo_ValueChanged(object sender, EventArgs e)
         {
-            trackBarSandalo.Value = (int)numericUDSandalo.Value;
+            if (numericUDSandalo.Value <= trackBarSandalo.Maximum) trackBarSandalo.Value = (int)numericUDSandalo.Value;
+            RevisarLimites(trackBarSandalo, numericUDSandalo);
+
         }
 
         private void trackBarBergamota_Scroll(object sender, EventArgs e)
         {
-            int suma = trackBarAlcohol.Value + trackBarLavanda.Value + trackBarSandalo.Value + trackBarBergamota.Value;
-
-            if (suma > 101)
-            {
-                trackBarBergamota.Value -= (suma - 101);
-            }
-
-            numericUDBergamota.Value = trackBarBergamota.Value;
-            actualizarProgreso();
+            RevisarLimites(trackBarBergamota, numericUDBergamota);
         }
 
         private void numericUDBergamota_ValueChanged(object sender, EventArgs e)
         {
-            trackBarBergamota.Value = (int)numericUDBergamota.Value;
+            if (numericUDBergamota.Value <= trackBarBergamota.Maximum) trackBarBergamota.Value = (int)numericUDBergamota.Value;
+            RevisarLimites(trackBarBergamota, numericUDBergamota);
         }
 
 
@@ -175,76 +150,48 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                 lblEmail.ForeColor = Color.Black;
             }
         }
+        private void RevisarLimites(TrackBar tb, NumericUpDown num)
+        {
+            int max = circularProgresBar.Maximum;
+            int suma = trackBarAlcohol.Value + trackBarLavanda.Value + trackBarSandalo.Value + trackBarBergamota.Value;
 
+            if (suma > max)
+            {
+                circularProgresBar.ProgressColor = Color.Red;
+                int exceso = suma - max;
+                if (tb.Value >= exceso) tb.Value -= exceso;
+                else tb.Value = 0;
+            }
+            
+                num.Value = tb.Value;
+                actualizarProgreso();
+        }
 
         public void actualizarProgreso()
-        {
-            int sumaActual = trackBarAlcohol.Value + trackBarBergamota.Value +
-                             trackBarLavanda.Value + trackBarSandalo.Value;
 
-            // Si la suma total intenta superar el 100
-            if (sumaActual > 100)
-            {
-                // Topamos el progreso visual en 100 para que no salte error
-                circularProgresBar.Value = 100;
-                circularProgresBar.ProgressColor = Color.Red;
-            }
-            else
-            {
-                circularProgresBar.Value = sumaActual;
-                circularProgresBar.ProgressColor = Color.Green;
-            }
+        {
+            circularProgresBar.Value = trackBarAlcohol.Value + trackBarBergamota.Value + trackBarLavanda.Value + trackBarSandalo.Value;
         }
 
         private void listViewEnvases_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listViewEnvases.SelectedItems.Count > 0) 
+            if (listViewEnvases.SelectedItems.Count > 0)
             {
                 int capacidadMl = (int)listViewEnvases.SelectedItems[0].Tag;
+
+                int sumaActual = trackBarAlcohol.Value + trackBarLavanda.Value + trackBarSandalo.Value + trackBarBergamota.Value;
+
+                if(sumaActual > capacidadMl)
+                {
+                    circularProgresBar.Value = 0;
+                    btnReiniciarMezcla_Click(null, null);
+                }
 
                 circularProgresBar.Maximum = capacidadMl;
 
                 lblCapacidad.Text = "Capacidad del envase (" + capacidadMl + " ml)";
                 actualizarProgreso();
             }
-        }
-
-        private void AjustarExcesoAlSoltar(TrackBar trackBarActual, NumericUpDown numericUDActual)
-        {
-            int suma = trackBarAlcohol.Value + trackBarBergamota.Value +
-                       trackBarLavanda.Value + trackBarSandalo.Value;
-
-            if (suma > 100)
-            {
-                // Le restamos el exceso a la barra específica que el usuario acaba de soltar
-                trackBarActual.Value -= (suma - 100);
-
-                // Actualizamos el control numérico correspondiente
-                numericUDActual.Value = trackBarActual.Value;
-
-                // Devolvemos el color a la normalidad y actualizamos el progreso
-                actualizarProgreso();
-            }
-        }
-
-        private void trackBarAlcohol_MouseUp(object sender, MouseEventArgs e)
-        {
-            AjustarExcesoAlSoltar(trackBarAlcohol, numericUDAlcohol);
-        }
-
-        private void trackBarLavanda_MouseUp(object sender, MouseEventArgs e)
-        {
-            AjustarExcesoAlSoltar(trackBarLavanda, numericUDLavanda);
-        }
-
-        private void trackBarSandalo_MouseUp(object sender, MouseEventArgs e)
-        {
-            AjustarExcesoAlSoltar(trackBarSandalo, numericUDSandalo);
-        }
-
-        private void trackBarBergamota_MouseUp(object sender, MouseEventArgs e)
-        {
-            AjustarExcesoAlSoltar(trackBarBergamota, numericUDBergamota);
         }
 
         private void btnReiniciarMezcla_Click(object sender, EventArgs e)
@@ -255,6 +202,6 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             numericUDBergamota.Value = 0;
             actualizarProgreso();
         }
-
+     
     }
 }

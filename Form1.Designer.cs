@@ -33,9 +33,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelGrafica = new System.Windows.Forms.Panel();
-            this.circularProgresBar = new PF26_48848727Q_24470742F_77658838M_54800134N.CircularProgresBar();
             this.lblCapacidad = new System.Windows.Forms.Label();
             this.panelCoste = new System.Windows.Forms.Panel();
+            this.lblCLavanda = new System.Windows.Forms.Label();
+            this.lblCAlcohol = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panelComposicion = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -76,6 +82,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listViewEnvases = new System.Windows.Forms.ListView();
             this.imageListEnvases = new System.Windows.Forms.ImageList(this.components);
+            this.lblCSandalo = new System.Windows.Forms.Label();
+            this.lblCBergamota = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.lblCTotal = new System.Windows.Forms.Label();
+            this.btnFinPedido = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.circularProgresBar = new PF26_48848727Q_24470742F_77658838M_54800134N.CircularProgresBar();
             this.panel1.SuspendLayout();
             this.panelGrafica.SuspendLayout();
             this.panelCoste.SuspendLayout();
@@ -128,20 +142,6 @@
             this.panelGrafica.Size = new System.Drawing.Size(240, 165);
             this.panelGrafica.TabIndex = 6;
             // 
-            // circularProgresBar
-            // 
-            this.circularProgresBar.BaseColor = System.Drawing.Color.LightGray;
-            this.circularProgresBar.LineWidth = 10;
-            this.circularProgresBar.Location = new System.Drawing.Point(59, 43);
-            this.circularProgresBar.Margin = new System.Windows.Forms.Padding(4);
-            this.circularProgresBar.Maximum = 100;
-            this.circularProgresBar.Name = "circularProgresBar";
-            this.circularProgresBar.ProgressColor = System.Drawing.Color.DodgerBlue;
-            this.circularProgresBar.Size = new System.Drawing.Size(133, 110);
-            this.circularProgresBar.TabIndex = 4;
-            this.circularProgresBar.Text = "circularProgresBar1";
-            this.circularProgresBar.Value = 0;
-            // 
             // lblCapacidad
             // 
             this.lblCapacidad.AutoSize = true;
@@ -156,12 +156,96 @@
             // 
             this.panelCoste.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.panelCoste.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCoste.Controls.Add(this.button3);
+            this.panelCoste.Controls.Add(this.btnFinPedido);
+            this.panelCoste.Controls.Add(this.lblCTotal);
+            this.panelCoste.Controls.Add(this.label31);
+            this.panelCoste.Controls.Add(this.label30);
+            this.panelCoste.Controls.Add(this.lblCBergamota);
+            this.panelCoste.Controls.Add(this.lblCSandalo);
+            this.panelCoste.Controls.Add(this.lblCLavanda);
+            this.panelCoste.Controls.Add(this.lblCAlcohol);
+            this.panelCoste.Controls.Add(this.label29);
+            this.panelCoste.Controls.Add(this.label28);
+            this.panelCoste.Controls.Add(this.label27);
+            this.panelCoste.Controls.Add(this.label26);
+            this.panelCoste.Controls.Add(this.label6);
             this.panelCoste.Controls.Add(this.label7);
             this.panelCoste.Location = new System.Drawing.Point(872, 75);
             this.panelCoste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelCoste.Name = "panelCoste";
             this.panelCoste.Size = new System.Drawing.Size(239, 315);
             this.panelCoste.TabIndex = 5;
+            // 
+            // lblCLavanda
+            // 
+            this.lblCLavanda.AutoSize = true;
+            this.lblCLavanda.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.lblCLavanda.Location = new System.Drawing.Point(166, 112);
+            this.lblCLavanda.Name = "lblCLavanda";
+            this.lblCLavanda.Size = new System.Drawing.Size(40, 19);
+            this.lblCLavanda.TabIndex = 9;
+            this.lblCLavanda.Text = "0.00";
+            // 
+            // lblCAlcohol
+            // 
+            this.lblCAlcohol.AutoSize = true;
+            this.lblCAlcohol.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.lblCAlcohol.Location = new System.Drawing.Point(166, 75);
+            this.lblCAlcohol.Name = "lblCAlcohol";
+            this.lblCAlcohol.Size = new System.Drawing.Size(40, 19);
+            this.lblCAlcohol.TabIndex = 8;
+            this.lblCAlcohol.Text = "0.00";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.label29.Location = new System.Drawing.Point(13, 180);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(134, 19);
+            this.label29.TabIndex = 7;
+            this.label29.Text = "Coste Bergamota:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.label28.Location = new System.Drawing.Point(12, 147);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(111, 19);
+            this.label28.TabIndex = 6;
+            this.label28.Text = "Coste Sándalo:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.label27.Location = new System.Drawing.Point(15, 112);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(114, 19);
+            this.label27.TabIndex = 5;
+            this.label27.Text = "Coste Lavanda:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.label26.Location = new System.Drawing.Point(15, 75);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(109, 19);
+            this.label26.TabIndex = 4;
+            this.label26.Text = "Coste Alcohol:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(13, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 19);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Coste Envase:";
             // 
             // label7
             // 
@@ -290,7 +374,6 @@
             this.trackBarBergamota.TabIndex = 29;
             this.trackBarBergamota.TickFrequency = 5;
             this.trackBarBergamota.Scroll += new System.EventHandler(this.trackBarBergamota_Scroll);
-            this.trackBarBergamota.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarBergamota_MouseUp);
             // 
             // label20
             // 
@@ -365,7 +448,6 @@
             this.trackBarSandalo.TabIndex = 23;
             this.trackBarSandalo.TickFrequency = 8;
             this.trackBarSandalo.Scroll += new System.EventHandler(this.trackBarSandalo_Scroll);
-            this.trackBarSandalo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarSandalo_MouseUp);
             // 
             // label25
             // 
@@ -440,7 +522,6 @@
             this.trackBarLavanda.TabIndex = 16;
             this.trackBarLavanda.TickFrequency = 10;
             this.trackBarLavanda.Scroll += new System.EventHandler(this.trackBarLavanda_Scroll);
-            this.trackBarLavanda.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarLavanda_MouseUp);
             // 
             // label17
             // 
@@ -510,7 +591,6 @@
             this.trackBarAlcohol.TabIndex = 9;
             this.trackBarAlcohol.TickFrequency = 50;
             this.trackBarAlcohol.Scroll += new System.EventHandler(this.trackBarAlcohol_Scroll);
-            this.trackBarAlcohol.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarAlcohol_MouseUp);
             // 
             // label8
             // 
@@ -627,6 +707,88 @@
             this.imageListEnvases.Images.SetKeyName(8, "pngegg (2).png");
             this.imageListEnvases.Images.SetKeyName(9, "pngegg (1).png");
             // 
+            // lblCSandalo
+            // 
+            this.lblCSandalo.AutoSize = true;
+            this.lblCSandalo.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.lblCSandalo.Location = new System.Drawing.Point(166, 147);
+            this.lblCSandalo.Name = "lblCSandalo";
+            this.lblCSandalo.Size = new System.Drawing.Size(40, 19);
+            this.lblCSandalo.TabIndex = 10;
+            this.lblCSandalo.Text = "0.00";
+            // 
+            // lblCBergamota
+            // 
+            this.lblCBergamota.AutoSize = true;
+            this.lblCBergamota.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.lblCBergamota.Location = new System.Drawing.Point(166, 179);
+            this.lblCBergamota.Name = "lblCBergamota";
+            this.lblCBergamota.Size = new System.Drawing.Size(40, 19);
+            this.lblCBergamota.TabIndex = 11;
+            this.lblCBergamota.Text = "0.00";
+            // 
+            // label30
+            // 
+            this.label30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label30.Location = new System.Drawing.Point(13, 209);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(211, 2);
+            this.label30.TabIndex = 12;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.label31.Location = new System.Drawing.Point(11, 219);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(132, 27);
+            this.label31.TabIndex = 13;
+            this.label31.Text = "Coste Total:";
+            // 
+            // lblCTotal
+            // 
+            this.lblCTotal.AutoSize = true;
+            this.lblCTotal.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.lblCTotal.Location = new System.Drawing.Point(151, 219);
+            this.lblCTotal.Name = "lblCTotal";
+            this.lblCTotal.Size = new System.Drawing.Size(66, 27);
+            this.lblCTotal.TabIndex = 14;
+            this.lblCTotal.Text = "0.00€";
+            // 
+            // btnFinPedido
+            // 
+            this.btnFinPedido.BackColor = System.Drawing.Color.Purple;
+            this.btnFinPedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnFinPedido.Location = new System.Drawing.Point(19, 248);
+            this.btnFinPedido.Name = "btnFinPedido";
+            this.btnFinPedido.Size = new System.Drawing.Size(187, 30);
+            this.btnFinPedido.TabIndex = 15;
+            this.btnFinPedido.Text = "FInalizar Pedido";
+            this.btnFinPedido.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(19, 284);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(187, 24);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // circularProgresBar
+            // 
+            this.circularProgresBar.BaseColor = System.Drawing.Color.LightGray;
+            this.circularProgresBar.LineWidth = 10;
+            this.circularProgresBar.Location = new System.Drawing.Point(59, 43);
+            this.circularProgresBar.Margin = new System.Windows.Forms.Padding(4);
+            this.circularProgresBar.Maximum = 100;
+            this.circularProgresBar.Name = "circularProgresBar";
+            this.circularProgresBar.ProgressColor = System.Drawing.Color.DodgerBlue;
+            this.circularProgresBar.Size = new System.Drawing.Size(133, 110);
+            this.circularProgresBar.TabIndex = 4;
+            this.circularProgresBar.Text = "circularProgresBar1";
+            this.circularProgresBar.Value = 0;
+            // 
             // FormLaboratorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -711,6 +873,20 @@
         private CircularProgresBar circularProgresBar;
         private System.Windows.Forms.ListView listViewEnvases;
         private System.Windows.Forms.ImageList imageListEnvases;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCLavanda;
+        private System.Windows.Forms.Label lblCAlcohol;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label lblCSandalo;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lblCBergamota;
+        private System.Windows.Forms.Label lblCTotal;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnFinPedido;
     }
 }
 

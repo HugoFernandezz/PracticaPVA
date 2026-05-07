@@ -30,3 +30,5 @@ C:\Users\hugaz\Documents\PracticaPVA\obj\Debug\PF26_48848727Q_24470742F_77658838
 C:\Users\hugaz\Documents\PracticaPVA\obj\Debug\PF26_48848727Q_24470742F_77658838M_54800134N.pdb
 C:\Users\natal\PracticaPVA\obj\Debug\PF26_48848727Q_24470742F_77658838M_54800134N.exe.config
 C:\Users\natal\PracticaPVA\obj\Debug\PF26_48848727Q_24470742F_77658838M_54800134N.FormLaboratorio.resources
+C:\Users\natal\PracticaPVA\bin\Debug\Laboratorio.mdf
+C:\Users\natal\PracticaPVA\bin\Debug\Laboratorio_log.ldf
