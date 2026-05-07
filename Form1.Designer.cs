@@ -33,8 +33,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelGrafica = new System.Windows.Forms.Panel();
+            this.circularProgresBar = new PF26_48848727Q_24470742F_77658838M_54800134N.CircularProgresBar();
             this.lblCapacidad = new System.Windows.Forms.Label();
             this.panelCoste = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnFinPedido = new System.Windows.Forms.Button();
+            this.lblCTotal = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.lblCBergamota = new System.Windows.Forms.Label();
+            this.lblCSandalo = new System.Windows.Forms.Label();
             this.lblCLavanda = new System.Windows.Forms.Label();
             this.lblCAlcohol = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -82,14 +90,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listViewEnvases = new System.Windows.Forms.ListView();
             this.imageListEnvases = new System.Windows.Forms.ImageList(this.components);
-            this.lblCSandalo = new System.Windows.Forms.Label();
-            this.lblCBergamota = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.lblCTotal = new System.Windows.Forms.Label();
-            this.btnFinPedido = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.circularProgresBar = new PF26_48848727Q_24470742F_77658838M_54800134N.CircularProgresBar();
             this.panel1.SuspendLayout();
             this.panelGrafica.SuspendLayout();
             this.panelCoste.SuspendLayout();
@@ -142,6 +142,20 @@
             this.panelGrafica.Size = new System.Drawing.Size(240, 165);
             this.panelGrafica.TabIndex = 6;
             // 
+            // circularProgresBar
+            // 
+            this.circularProgresBar.BaseColor = System.Drawing.Color.LightGray;
+            this.circularProgresBar.LineWidth = 10;
+            this.circularProgresBar.Location = new System.Drawing.Point(59, 43);
+            this.circularProgresBar.Margin = new System.Windows.Forms.Padding(4);
+            this.circularProgresBar.Maximum = 100;
+            this.circularProgresBar.Name = "circularProgresBar";
+            this.circularProgresBar.ProgressColor = System.Drawing.Color.DodgerBlue;
+            this.circularProgresBar.Size = new System.Drawing.Size(133, 110);
+            this.circularProgresBar.TabIndex = 4;
+            this.circularProgresBar.Text = "circularProgresBar1";
+            this.circularProgresBar.Value = 0;
+            // 
             // lblCapacidad
             // 
             this.lblCapacidad.AutoSize = true;
@@ -176,6 +190,74 @@
             this.panelCoste.Name = "panelCoste";
             this.panelCoste.Size = new System.Drawing.Size(239, 315);
             this.panelCoste.TabIndex = 5;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(19, 284);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(187, 24);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // btnFinPedido
+            // 
+            this.btnFinPedido.BackColor = System.Drawing.Color.Purple;
+            this.btnFinPedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnFinPedido.Location = new System.Drawing.Point(19, 248);
+            this.btnFinPedido.Name = "btnFinPedido";
+            this.btnFinPedido.Size = new System.Drawing.Size(187, 30);
+            this.btnFinPedido.TabIndex = 15;
+            this.btnFinPedido.Text = "FInalizar Pedido";
+            this.btnFinPedido.UseVisualStyleBackColor = false;
+            // 
+            // lblCTotal
+            // 
+            this.lblCTotal.AutoSize = true;
+            this.lblCTotal.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.lblCTotal.Location = new System.Drawing.Point(151, 219);
+            this.lblCTotal.Name = "lblCTotal";
+            this.lblCTotal.Size = new System.Drawing.Size(66, 27);
+            this.lblCTotal.TabIndex = 14;
+            this.lblCTotal.Text = "0.00€";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.label31.Location = new System.Drawing.Point(11, 219);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(132, 27);
+            this.label31.TabIndex = 13;
+            this.label31.Text = "Coste Total:";
+            // 
+            // label30
+            // 
+            this.label30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label30.Location = new System.Drawing.Point(13, 209);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(211, 2);
+            this.label30.TabIndex = 12;
+            // 
+            // lblCBergamota
+            // 
+            this.lblCBergamota.AutoSize = true;
+            this.lblCBergamota.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.lblCBergamota.Location = new System.Drawing.Point(166, 179);
+            this.lblCBergamota.Name = "lblCBergamota";
+            this.lblCBergamota.Size = new System.Drawing.Size(40, 19);
+            this.lblCBergamota.TabIndex = 11;
+            this.lblCBergamota.Text = "0.00";
+            // 
+            // lblCSandalo
+            // 
+            this.lblCSandalo.AutoSize = true;
+            this.lblCSandalo.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.lblCSandalo.Location = new System.Drawing.Point(166, 147);
+            this.lblCSandalo.Name = "lblCSandalo";
+            this.lblCSandalo.Size = new System.Drawing.Size(40, 19);
+            this.lblCSandalo.TabIndex = 10;
+            this.lblCSandalo.Text = "0.00";
             // 
             // lblCLavanda
             // 
@@ -706,88 +788,6 @@
             this.imageListEnvases.Images.SetKeyName(7, "pngegg (3).png");
             this.imageListEnvases.Images.SetKeyName(8, "pngegg (2).png");
             this.imageListEnvases.Images.SetKeyName(9, "pngegg (1).png");
-            // 
-            // lblCSandalo
-            // 
-            this.lblCSandalo.AutoSize = true;
-            this.lblCSandalo.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCSandalo.Location = new System.Drawing.Point(166, 147);
-            this.lblCSandalo.Name = "lblCSandalo";
-            this.lblCSandalo.Size = new System.Drawing.Size(40, 19);
-            this.lblCSandalo.TabIndex = 10;
-            this.lblCSandalo.Text = "0.00";
-            // 
-            // lblCBergamota
-            // 
-            this.lblCBergamota.AutoSize = true;
-            this.lblCBergamota.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCBergamota.Location = new System.Drawing.Point(166, 179);
-            this.lblCBergamota.Name = "lblCBergamota";
-            this.lblCBergamota.Size = new System.Drawing.Size(40, 19);
-            this.lblCBergamota.TabIndex = 11;
-            this.lblCBergamota.Text = "0.00";
-            // 
-            // label30
-            // 
-            this.label30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label30.Location = new System.Drawing.Point(13, 209);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(211, 2);
-            this.label30.TabIndex = 12;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
-            this.label31.Location = new System.Drawing.Point(11, 219);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(132, 27);
-            this.label31.TabIndex = 13;
-            this.label31.Text = "Coste Total:";
-            // 
-            // lblCTotal
-            // 
-            this.lblCTotal.AutoSize = true;
-            this.lblCTotal.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCTotal.Location = new System.Drawing.Point(151, 219);
-            this.lblCTotal.Name = "lblCTotal";
-            this.lblCTotal.Size = new System.Drawing.Size(66, 27);
-            this.lblCTotal.TabIndex = 14;
-            this.lblCTotal.Text = "0.00€";
-            // 
-            // btnFinPedido
-            // 
-            this.btnFinPedido.BackColor = System.Drawing.Color.Purple;
-            this.btnFinPedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFinPedido.Location = new System.Drawing.Point(19, 248);
-            this.btnFinPedido.Name = "btnFinPedido";
-            this.btnFinPedido.Size = new System.Drawing.Size(187, 30);
-            this.btnFinPedido.TabIndex = 15;
-            this.btnFinPedido.Text = "FInalizar Pedido";
-            this.btnFinPedido.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(19, 284);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(187, 24);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // circularProgresBar
-            // 
-            this.circularProgresBar.BaseColor = System.Drawing.Color.LightGray;
-            this.circularProgresBar.LineWidth = 10;
-            this.circularProgresBar.Location = new System.Drawing.Point(59, 43);
-            this.circularProgresBar.Margin = new System.Windows.Forms.Padding(4);
-            this.circularProgresBar.Maximum = 100;
-            this.circularProgresBar.Name = "circularProgresBar";
-            this.circularProgresBar.ProgressColor = System.Drawing.Color.DodgerBlue;
-            this.circularProgresBar.Size = new System.Drawing.Size(133, 110);
-            this.circularProgresBar.TabIndex = 4;
-            this.circularProgresBar.Text = "circularProgresBar1";
-            this.circularProgresBar.Value = 0;
             // 
             // FormLaboratorio
             // 
