@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace PF26_48848727Q_24470742F_77658838M_54800134N
 {
     public partial class FormLaboratorio : Form
     {
         List<Envase> listaEnvases = new List<Envase>();
+
+        // Esta es la ruta a tu archivo local
+        string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=LaboratorioBD;Integrated Security=True;Encrypt=True;Encrypt=False";
         public FormLaboratorio()
         {
             InitializeComponent();
@@ -26,47 +30,40 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         {
             listViewEnvases.Items.Clear();
 
-            ListViewItem envase1 = new ListViewItem("20mL Cubo Minimalista\n5,50€", 0);
-            envase1.Tag = 20;
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            {
+                // Consulta para traer los datos
+                string query = "SELECT Id, Nombre, CapacidadMl, Precio FROM Envases";
+                SqlCommand comando = new SqlCommand(query, conexion);
 
-            ListViewItem envase2 = new ListViewItem("30mL Diamante Tallado\n9,80€", 1);
-            envase2.Tag = 30;
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = comando.ExecuteReader();
+                    int i = 0; // Para los iconos
 
-            ListViewItem envase3 = new ListViewItem("30mL Vial Modernista\n12,40€", 2);
-            envase3.Tag = 30;
+                    while (reader.Read())
+                    {
+                        int id = (int)reader["Id"];
+                        string nombre = reader["Nombre"].ToString();
+                        int capacidad = (int)reader["CapacidadMl"];
+                        decimal precio = (decimal)reader["Precio"];
 
-            ListViewItem envase4 = new ListViewItem("50mL Gema Rosa\n18,60€", 3);
-            envase4.Tag = 50;
+                        // Formateamos el texto como lo tenías antes
+                        ListViewItem item = new ListViewItem($"{capacidad}mL {nombre}\n{precio:N2}€", i);
 
-            ListViewItem envase5 = new ListViewItem("50mL Gota Orgánica\n15,90", 4);
-            envase5.Tag = 50;
+                        // IMPORTANTE: Guardamos la capacidad en el Tag para que los límites sigan funcionando
+                        item.Tag = capacidad;
 
-            ListViewItem envase6 = new ListViewItem("50mL Frasco de Botica\n10, 20€", 5);
-            envase6.Tag = 50;
-
-            ListViewItem envase7 = new ListViewItem("100mL Torre Estilizada\n24,50€", 6);
-            envase7.Tag = 100;
-
-            ListViewItem envase8 = new ListViewItem("100mL Óvalo Ergonómico\n21,80€", 7);
-            envase8.Tag = 100;
-
-            ListViewItem envase9 = new ListViewItem("100mL Copa de Autor\n32€", 8);
-            envase9.Tag = 100;
-
-            ListViewItem envase10 = new ListViewItem("200mL Bloque de Lujo\n50€", 9);
-            envase10.Tag = 100;
-
-            listViewEnvases.Items.Add(envase1);
-            listViewEnvases.Items.Add(envase2);
-            listViewEnvases.Items.Add(envase3);
-            listViewEnvases.Items.Add(envase4);
-            listViewEnvases.Items.Add(envase5);
-            listViewEnvases.Items.Add(envase6);
-            listViewEnvases.Items.Add(envase7);
-            listViewEnvases.Items.Add(envase8);
-            listViewEnvases.Items.Add(envase9);
-            listViewEnvases.Items.Add(envase10);
-
+                        listViewEnvases.Items.Add(item);
+                        i++;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al conectar: " + ex.Message);
+                }
+            }
         }
 
         private void trackBarAlcohol_Scroll(object sender, EventArgs e)
@@ -203,6 +200,6 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             actualizarProgreso();
         }
 
-
+        
     }
 }
