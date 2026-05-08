@@ -21,6 +21,16 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         {
             InitializeComponent();
 
+            trackBarAlcohol.MouseCaptureChanged += VolverVerdeAlSoltar;
+            trackBarLavanda.MouseCaptureChanged += VolverVerdeAlSoltar;
+            trackBarSandalo.MouseCaptureChanged += VolverVerdeAlSoltar;
+            trackBarBergamota.MouseCaptureChanged += VolverVerdeAlSoltar;
+
+            numericUDAlcohol.MouseUp += VolverVerdeAlSoltar;
+            numericUDLavanda.MouseUp += VolverVerdeAlSoltar;
+            numericUDSandalo.MouseUp += VolverVerdeAlSoltar;
+            numericUDBergamota.MouseUp += VolverVerdeAlSoltar;
+
             CargarEnvases();
             actualizarProgreso();
             
@@ -200,6 +210,11 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             actualizarProgreso();
         }
 
-        
+        private void VolverVerdeAlSoltar(object sender, EventArgs e)
+        {
+            circularProgresBar.ProgressColor = Color.Green;
+            actualizarProgreso();
+        }
+
     }
 }
