@@ -38,7 +38,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void CargarEnvases()
         {
-            listViewEnvases.Items.Clear();
+            //listViewEnvases.Items.Clear();
 
             using (SqlConnection conexion = new SqlConnection(connectionString))
             {
@@ -180,7 +180,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             circularProgresBar.Value = trackBarAlcohol.Value + trackBarBergamota.Value + trackBarLavanda.Value + trackBarSandalo.Value;
         }
 
-        private void listViewEnvases_SelectedIndexChanged(object sender, EventArgs e)
+        private void cambioCapacidad(object sender, EventArgs e)
         {
             if (listViewEnvases.SelectedItems.Count > 0)
             {

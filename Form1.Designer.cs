@@ -772,7 +772,7 @@
             this.listViewEnvases.Size = new System.Drawing.Size(373, 329);
             this.listViewEnvases.TabIndex = 1;
             this.listViewEnvases.UseCompatibleStateImageBehavior = false;
-            this.listViewEnvases.SelectedIndexChanged += new System.EventHandler(this.listViewEnvases_SelectedIndexChanged);
+            this.listViewEnvases.SelectedIndexChanged += new System.EventHandler(this.cambioCapacidad);
             // 
             // imageListEnvases
             // 
