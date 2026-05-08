@@ -1,0 +1,98 @@
+# ============================================================
+#  Visual Studio — C# Windows Forms
+# ============================================================
+
+# ── Carpetas de compilación ──────────────────────────────────
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# ── Visual Studio ────────────────────────────────────────────
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# ── NuGet ────────────────────────────────────────────────────
+packages/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+# Permite que los archivos .targets de NuGet se suban al repo
+!packages/build/
+
+# ── Archivos de build ────────────────────────────────────────
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.vspscc
+*.vssscc
+
+# ── Publicación / Deploy ─────────────────────────────────────
+[Pp]ublish/
+[Pp]ublish[Oo]utput/
+*.[Pp]ublish.xml
+*.azurePubxml
+*.pubxml
+*.publishproj
+
+# ── Archivos generados por herramientas ──────────────────────
+*_i.c
+*_p.c
+*_h.h
+*.designer.cs.bak
+StyleCopReport.xml
+TestResult.xml
+*.VisualState.xml
+
+# ── ReSharper ────────────────────────────────────────────────
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# ── Rider (JetBrains) ────────────────────────────────────────
+.idea/
+
+# ── Cobertura / Tests ────────────────────────────────────────
+*.coverage
+*.coveragexml
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+TestResults/
+
+# ── ClickOnce ────────────────────────────────────────────────
+*.manifest
+*.application
+
+# ── Windows ──────────────────────────────────────────────────
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ── Credenciales y configuración local ──────────────────────
+*.env
+*.env.local
+appsettings.Local.json
+secrets.json
