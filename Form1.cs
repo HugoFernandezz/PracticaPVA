@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace PF26_48848727Q_24470742F_77658838M_54800134N
 {
@@ -16,10 +18,12 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         List<Envase> listaEnvases = new List<Envase>();
 
         // Esta es la ruta a tu archivo local
-        string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=LaboratorioBD;Integrated Security=True;Encrypt=True;Encrypt=False";
+        string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=LaboratorioBD;Integrated Security=True;TrustServerCertificate=True;"; 
         public FormLaboratorio()
         {
             InitializeComponent();
+
+            InicializarBaseDeDatosCompleta();
 
             trackBarAlcohol.MouseCaptureChanged += VolverVerdeAlSoltar;
             trackBarLavanda.MouseCaptureChanged += VolverVerdeAlSoltar;
@@ -34,6 +38,78 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             CargarEnvases();
             actualizarProgreso();
             
+        }
+
+        private bool ExisteTabla(SqlConnection conexion, string nombreTabla)
+        {
+            // Esta consulta busca en las tablas del sistema de SQL Server
+            string checkQuery = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @NombreTabla";
+
+            using (SqlCommand checkCmd = new SqlCommand(checkQuery, conexion))
+            {
+                // Usamos parámetros por seguridad
+                checkCmd.Parameters.AddWithValue("@NombreTabla", nombreTabla);
+
+                // Ejecutamos y convertimos el resultado a número
+                int tableCount = (int)checkCmd.ExecuteScalar();
+
+                // Si el conteo es mayor a 0, la tabla existe
+                return tableCount > 0;
+            }
+        }
+
+        private void InicializarBaseDeDatosCompleta()
+        {
+            // Tu cadena de conexión (asegúrate de que el Database=LaboratorioBD sea correcto)
+            string connectionString = @"Server=.\SQLEXPRESS; Database=LaboratorioBD; Integrated Security=True; TrustServerCertificate=True;";
+
+            // Buscamos el archivo. Al usar Path.Combine con el nombre, 
+            // asumimos que el archivo se copia a la carpeta donde corre el .exe
+            string rutaArchivoSql = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tablasYdatos.sql");
+
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+
+                    // Comprobamos si falta la tabla principal (Envases). 
+                    // Si falta esta, asumimos que hay que correr todo el script.
+                    if (!ExisteTabla(conexion, "Envases"))
+                    {
+                        if (!File.Exists(rutaArchivoSql))
+                        {
+                            MessageBox.Show("No se encontró el archivo de configuración: " + rutaArchivoSql +
+                                "\n\nRecuerda marcar el archivo .sql en Visual Studio como 'Copiar si es posterior'.",
+                                "Archivo no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        string scriptCompleto = File.ReadAllText(rutaArchivoSql);
+
+                        // Cortamos el script por los "GO"
+                        string[] comandos = Regex.Split(scriptCompleto, @"^\s*GO\s*$", RegexOptions.Multiline | RegexOptions.IgnoreCase);
+
+                        foreach (string comando in comandos)
+                        {
+                            if (!string.IsNullOrWhiteSpace(comando))
+                            {
+                                using (SqlCommand cmd = new SqlCommand(comando, conexion))
+                                {
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
+
+                        MessageBox.Show("¡Base de datos configurada íntegramente con todas sus tablas y datos!",
+                            "Sincronización Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al inicializar las tablas: " + ex.Message, "Error de SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void CargarEnvases()
