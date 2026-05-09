@@ -17,6 +17,11 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
     {
         List<Envase> listaEnvases = new List<Envase>();
 
+        const float precioAlcohol = 0.15f;
+        const float precioLavanda = 1;
+        const float precioSandalo = 1.25f;
+        const float precioBergamota = 8.2f;
+
         // Esta es la ruta a tu archivo local
         string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=LaboratorioBD;Integrated Security=True;TrustServerCertificate=True;"; 
         public FormLaboratorio()
@@ -154,6 +159,10 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void trackBarAlcohol_Scroll(object sender, EventArgs e)
         {
+            //Modificamos los labels de los precios y lo limitamos a 2 decimales
+            lblCAlcohol.Text = ((float)numericUDAlcohol.Value * precioAlcohol).ToString("0.00") + '€';
+            actualizarPrecioFinal();
+
             RevisarLimites(trackBarAlcohol, numericUDAlcohol);
         }
 
@@ -165,7 +174,10 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void trackBarLavanda_Scroll(object sender, EventArgs e)
         {
-           RevisarLimites(trackBarLavanda, numericUDLavanda);
+            //Modificamos los labels de los precios y lo limitamos a 2 decimales
+            lblCLavanda.Text = ((float)numericUDLavanda.Value * precioLavanda).ToString("0.00") + '€';
+            actualizarPrecioFinal();
+            RevisarLimites(trackBarLavanda, numericUDLavanda);
         }
 
         private void numericUDLavanda_ValueChanged(object sender, EventArgs e)
@@ -176,6 +188,10 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void trackBarSandalo_Scroll(object sender, EventArgs e)
         {
+            //Modificamos los labels de los precios y lo limitamos a 2 decimales
+            lblCSandalo.Text = ((float)numericUDSandalo.Value * precioSandalo).ToString("0.00") + '€';
+            actualizarPrecioFinal();
+
             RevisarLimites(trackBarSandalo, numericUDSandalo);
         }
 
@@ -188,6 +204,10 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void trackBarBergamota_Scroll(object sender, EventArgs e)
         {
+            //Modificamos los labels de los precios y lo limitamos a 2 decimales
+            lblCBergamota.Text = ((float)numericUDBergamota.Value * precioBergamota).ToString("0.00") + '€';
+            actualizarPrecioFinal();
+
             RevisarLimites(trackBarBergamota, numericUDBergamota);
         }
 
@@ -292,5 +312,21 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             actualizarProgreso();
         }
 
+        private void actualizarPrecioFinal()
+        {
+
+            //Para poder sumarlo tenemos que limpiar el texto ya que tienen '€'
+            float alcohol = float.Parse(lblCAlcohol.Text.Replace("€", ""));
+            float bergamota = float.Parse(lblCBergamota.Text.Replace("€", ""));
+            float lavanda = float.Parse(lblCLavanda.Text.Replace("€", ""));
+            float sandalo = float.Parse(lblCSandalo.Text.Replace("€", ""));
+
+            //Una vez tenemos los datos 'limpios' ya los podemos sumar
+            float total = alcohol + bergamota + lavanda + sandalo;
+            lblCTotal.Text = total.ToString("0.00") + "€";
+        }
+
+
+       
     }
 }
