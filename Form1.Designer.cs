@@ -35,7 +35,7 @@
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.lblCapacidad = new System.Windows.Forms.Label();
             this.panelCoste = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.btnFinPedido = new System.Windows.Forms.Button();
             this.lblCTotal = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -158,7 +158,7 @@
             // 
             this.panelCoste.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.panelCoste.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelCoste.Controls.Add(this.button3);
+            this.panelCoste.Controls.Add(this.btnExportar);
             this.panelCoste.Controls.Add(this.btnFinPedido);
             this.panelCoste.Controls.Add(this.lblCTotal);
             this.panelCoste.Controls.Add(this.label31);
@@ -179,18 +179,19 @@
             this.panelCoste.Size = new System.Drawing.Size(180, 256);
             this.panelCoste.TabIndex = 5;
             // 
-            // button3
+            // btnExportar
             // 
-            this.button3.BackColor = System.Drawing.Color.ForestGreen;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FloralWhite;
-            this.button3.Location = new System.Drawing.Point(14, 231);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 20);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Exportar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnExportar.BackColor = System.Drawing.Color.Silver;
+            this.btnExportar.Enabled = false;
+            this.btnExportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportar.ForeColor = System.Drawing.Color.FloralWhite;
+            this.btnExportar.Location = new System.Drawing.Point(14, 231);
+            this.btnExportar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(140, 20);
+            this.btnExportar.TabIndex = 16;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = false;
             // 
             // btnFinPedido
             // 
@@ -204,6 +205,7 @@
             this.btnFinPedido.TabIndex = 15;
             this.btnFinPedido.Text = "FInalizar Pedido";
             this.btnFinPedido.UseVisualStyleBackColor = false;
+            this.btnFinPedido.Click += new System.EventHandler(this.btnFinPedido_Click);
             // 
             // lblCTotal
             // 
@@ -927,7 +929,7 @@
         private System.Windows.Forms.Label lblCBergamota;
         private System.Windows.Forms.Label lblCTotal;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.Button btnFinPedido;
     }
 }

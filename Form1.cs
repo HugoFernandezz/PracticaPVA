@@ -16,6 +16,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
     public partial class FormLaboratorio : Form
     {
         List<Envase> listaEnvases = new List<Envase>();
+        List<Perfume> listaPerfumes = new List<Perfume>();
 
         const float precioAlcohol = 0.15f;
         const float precioLavanda = 1;
@@ -143,8 +144,8 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                         // Formateamos el texto como lo tenías antes
                         ListViewItem item = new ListViewItem($"{capacidad}mL {nombre}\n{precio:N2}€", i);
 
-                        // IMPORTANTE: Guardamos la capacidad en el Tag para que los límites sigan funcionando
-                        item.Tag = capacidad;
+                        // IMPORTANTE: Guardamos el objeto en el Tag para que los límites sigan funcionando
+                        item.Tag = new Envase { Id = id, Nombre = nombre, CapacidadMl = capacidad, Precio = precio };
 
                         listViewEnvases.Items.Add(item);
                         i++;
@@ -159,10 +160,13 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void trackBarAlcohol_Scroll(object sender, EventArgs e)
         {
-            //Modificamos los labels de los precios y lo limitamos a 2 decimales
-            lblCAlcohol.Text = ((float)numericUDAlcohol.Value * precioAlcohol).ToString("0.00") + '€';
-            actualizarPrecioFinal();
-
+            //Comprobamos que no este ya el maximo de la capacidad
+            if (circularProgresBar.Value < circularProgresBar.Maximum)
+            {
+                lblCAlcohol.Text = ((float)trackBarAlcohol.Value * precioAlcohol).ToString("0.00") + '€';
+                actualizarPrecioFinal();
+            }
+            //Limita el trackbar al maximo de la capacidad elegida en el envase y añade la funcionalidad de que se ponga de color rojo
             RevisarLimites(trackBarAlcohol, numericUDAlcohol);
         }
 
@@ -174,9 +178,11 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void trackBarLavanda_Scroll(object sender, EventArgs e)
         {
-            //Modificamos los labels de los precios y lo limitamos a 2 decimales
-            lblCLavanda.Text = ((float)numericUDLavanda.Value * precioLavanda).ToString("0.00") + '€';
-            actualizarPrecioFinal();
+            if (circularProgresBar.Value < circularProgresBar.Maximum)
+            {
+                lblCLavanda.Text = ((float)trackBarLavanda.Value * precioLavanda).ToString("0.00") + '€';
+                actualizarPrecioFinal();
+            }
             RevisarLimites(trackBarLavanda, numericUDLavanda);
         }
 
@@ -188,10 +194,11 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void trackBarSandalo_Scroll(object sender, EventArgs e)
         {
-            //Modificamos los labels de los precios y lo limitamos a 2 decimales
-            lblCSandalo.Text = ((float)numericUDSandalo.Value * precioSandalo).ToString("0.00") + '€';
-            actualizarPrecioFinal();
-
+            if (circularProgresBar.Value < circularProgresBar.Maximum)
+            {
+                lblCSandalo.Text = ((float)trackBarSandalo.Value * precioSandalo).ToString("0.00") + '€';
+                actualizarPrecioFinal();
+            }
             RevisarLimites(trackBarSandalo, numericUDSandalo);
         }
 
@@ -204,10 +211,11 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void trackBarBergamota_Scroll(object sender, EventArgs e)
         {
-            //Modificamos los labels de los precios y lo limitamos a 2 decimales
-            lblCBergamota.Text = ((float)numericUDBergamota.Value * precioBergamota).ToString("0.00") + '€';
-            actualizarPrecioFinal();
-
+            if (circularProgresBar.Value < circularProgresBar.Maximum)
+            {
+                lblCBergamota.Text = ((float)trackBarBergamota.Value * precioBergamota).ToString("0.00") + '€';
+                actualizarPrecioFinal();
+            }
             RevisarLimites(trackBarBergamota, numericUDBergamota);
         }
 
@@ -280,7 +288,9 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         {
             if (listViewEnvases.SelectedItems.Count > 0)
             {
-                int capacidadMl = (int)listViewEnvases.SelectedItems[0].Tag;
+                //recupero el objeto seleccionado de la lista y me quedo con sus mL maximos que es lo que me interesa
+                Envase envaseSeleccionado = (Envase)listViewEnvases.SelectedItems[0].Tag;
+                int capacidadMl = envaseSeleccionado.CapacidadMl;
 
                 int sumaActual = trackBarAlcohol.Value + trackBarLavanda.Value + trackBarSandalo.Value + trackBarBergamota.Value;
 
@@ -326,7 +336,55 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             lblCTotal.Text = total.ToString("0.00") + "€";
         }
 
+        private void btnFinPedido_Click(object sender, EventArgs e)
+        {
+            if (comprobarCampos() == false)
+            {
+                return;
+            }
 
-       
+            //Preparo los datos como hicimos en el metodo anterior
+            float alcohol = float.Parse(lblCAlcohol.Text.Replace("€", ""));
+            float bergamota = float.Parse(lblCBergamota.Text.Replace("€", ""));
+            float lavanda = float.Parse(lblCLavanda.Text.Replace("€", ""));
+            float sandalo = float.Parse(lblCSandalo.Text.Replace("€", ""));
+            //Si esta todo OK procedemos a crear el objeto
+            Envase envase = (Envase)listViewEnvases.SelectedItems[0].Tag;
+            listaPerfumes.Add(new Perfume(envase, alcohol, bergamota, lavanda, sandalo));
+
+            //Habilitamos la opcion de que el usuario pueda exportar
+            btnExportar.Enabled = true;
+            btnExportar.BackColor = Color.DarkGreen;
+
+            MessageBox.Show("Su perfume ha sido creado con éxito", "Perfume creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private bool comprobarCampos()
+        {
+
+            //Comprobaciones de que no falten campos
+            if (lblEmail.Text == string.Empty || lblEmail.Text == "Email" || lblNombre.Text == string.Empty || lblNombre.Text == "Nombre")
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            //Comprobacion de que hay alguna esencia seleccionada
+            if (lblCTotal.Text == "0.00€")
+            {
+                MessageBox.Show("Por favor, añada alguna esencia al perfume.", "Camposicion incompleta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            //Comprobacion de que hay algun envase seleccionado
+            if (listViewEnvases.SelectedItems.Count == 0) 
+            {
+                MessageBox.Show("Por favor, seleccione el envase que quiera para su perfume.", "Envase no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            } 
+
+
+            return true;
+        }
     }
 }
