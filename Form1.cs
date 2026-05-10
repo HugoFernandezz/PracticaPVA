@@ -23,8 +23,11 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         float precioSandalo;
         float precioBergamota;
 
-        // Esta es la ruta a tu archivo local
-        string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=LaboratorioBD;Integrated Security=True;TrustServerCertificate=True;"; 
+        // Configuración de la base de datos
+        private const string SERVIDOR = @".\SQLEXPRESS";
+        private const string BASE_DATOS = "LaboratorioBD";
+        private string connectionString = $@"Data Source={SERVIDOR};Initial Catalog={BASE_DATOS};Integrated Security=True;TrustServerCertificate=True;";
+
         public FormLaboratorio()
         {
             InitializeComponent();
@@ -88,8 +91,8 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         private void InicializarBaseDeDatosCompleta()
         {
             // Conectamos primero a master para asegurar que la base de datos existe
-            string connectionMaster = @"Server=.\SQLEXPRESS; Database=master; Integrated Security=True; TrustServerCertificate=True;";
-            string connectionDb = @"Server=.\SQLEXPRESS; Database=LaboratorioBD; Integrated Security=True; TrustServerCertificate=True;";
+            string connectionMaster = $@"Server={SERVIDOR}; Database=master; Integrated Security=True; TrustServerCertificate=True;";
+            string connectionDb = $@"Server={SERVIDOR}; Database={BASE_DATOS}; Integrated Security=True; TrustServerCertificate=True;";
 
             // Buscamos el archivo SQL
             string rutaArchivoSql = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tablasYdatos.sql");
@@ -123,8 +126,8 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                             return;
                         }
 
-                        // Leemos con Unicode (UTF-16) porque el archivo tiene BOM FF-FE de SQL Server
-                        string scriptCompleto = File.ReadAllText(rutaArchivoSql, Encoding.Unicode);
+                        // Leemos con UTF8 para soportar caracteres especiales y compatibilidad
+                        string scriptCompleto = File.ReadAllText(rutaArchivoSql, Encoding.UTF8);
 
                         // Cortamos el script por los "GO"
                         string[] comandos = Regex.Split(scriptCompleto, @"^\s*GO\s*$", RegexOptions.Multiline | RegexOptions.IgnoreCase);
@@ -412,7 +415,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                     GuardarDetalle(idGenerado, 4, (int)numericUDBergamota.Value, conexion);
 
                     //Insertamos en la lista de perfumes el perfume y habilitamos la opcion de exportar
-                    listaPerfumes.Add(new Perfume(envase, (float)numericUDAlcohol.Value, (float)numericUDBergamota.Value, (float)numericUDLavanda.Value, (float)numericUDSandalo.Value));
+                    listaPerfumes.Add(new Perfume(envase, (float)numericUDAlcohol.Value, (float)numericUDLavanda.Value, (float)numericUDSandalo.Value, (float)numericUDBergamota.Value));
                     btnExportar.Enabled = true;
                     btnExportar.BackColor = Color.DarkGreen;
                     MessageBox.Show("Pedido guardado con éxito en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -482,7 +485,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                         float precio = Convert.ToSingle(reader["PrecioPorMl"]);
                         if (nombre.Contains("alcohol")) precioAlcohol = precio;
                         else if (nombre.Contains("lavanda")) precioLavanda = precio;
-                        else if (nombre.Contains("sandalo")) precioSandalo = precio;
+                        else if (nombre.Contains("sandalo") || nombre.Contains("sándalo")) precioSandalo = precio;
                         else if (nombre.Contains("bergamota")) precioBergamota = precio;
                     }
                 }
