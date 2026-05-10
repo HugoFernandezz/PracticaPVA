@@ -18,10 +18,10 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         List<Envase> listaEnvases = new List<Envase>();
         List<Perfume> listaPerfumes = new List<Perfume>();
 
-        const float precioAlcohol = 0.15f;
-        const float precioLavanda = 1;
-        const float precioSandalo = 1.25f;
-        const float precioBergamota = 8.2f;
+        float precioAlcohol;
+        float precioLavanda;
+        float precioSandalo;
+        float precioBergamota;
 
         // Esta es la ruta a tu archivo local
         string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=LaboratorioBD;Integrated Security=True;TrustServerCertificate=True;"; 
@@ -42,6 +42,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             numericUDBergamota.MouseUp += VolverVerdeAlSoltar;
 
             CargarEnvases();
+            CargarPreciosBaseDeDatos();
             actualizarProgreso();
             
         }
@@ -348,15 +349,56 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             float bergamota = float.Parse(lblCBergamota.Text.Replace("€", ""));
             float lavanda = float.Parse(lblCLavanda.Text.Replace("€", ""));
             float sandalo = float.Parse(lblCSandalo.Text.Replace("€", ""));
-            //Si esta todo OK procedemos a crear el objeto
+            decimal total = decimal.Parse(lblCTotal.Text.Replace("€", ""));
+
+            //Recogemos los datos de los labels
+            string nombre = lblNombre.Text;
+            string email = lblEmail.Text;
+
+            //Recuperamos el objeto envase
             Envase envase = (Envase)listViewEnvases.SelectedItems[0].Tag;
-            listaPerfumes.Add(new Perfume(envase, alcohol, bergamota, lavanda, sandalo));
 
-            //Habilitamos la opcion de que el usuario pueda exportar
-            btnExportar.Enabled = true;
-            btnExportar.BackColor = Color.DarkGreen;
 
-            MessageBox.Show("Su perfume ha sido creado con éxito", "Perfume creado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //Conectamos con ls BD e insertamos
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+                    //INSERT para el Perfume
+                    //Usamos OUTPUT INSERTED.Id para obtener el ID que nos asigne la base de datos automáticamente
+                    string queryPerfume = "INSERT INTO Perfumes (NombreCliente, EmailCliente, EnvaseId, PrecioTotal) " +
+                                          "OUTPUT INSERTED.Id " +
+                                          "VALUES (@nom, @em, @envId, @total)";
+
+                    SqlCommand cmd = new SqlCommand(queryPerfume, conexion);
+
+                    cmd.Parameters.AddWithValue("@nom", nombre);
+                    cmd.Parameters.AddWithValue("@em", email);
+                    cmd.Parameters.AddWithValue("@envId", envase.Id);
+                    cmd.Parameters.AddWithValue("@total", total);
+
+                    //Ejecutamos y guardamos el ID generado
+                    int idGenerado = (int)cmd.ExecuteScalar();
+
+                    //Hacemos un INSERT por cada ingrediente que tenga cantidad > 0
+                    GuardarDetalle(idGenerado, 1, (int)numericUDAlcohol.Value, conexion);
+                    GuardarDetalle(idGenerado, 2, (int)numericUDLavanda.Value, conexion);
+                    GuardarDetalle(idGenerado, 3, (int)numericUDSandalo.Value, conexion);
+                    GuardarDetalle(idGenerado, 4, (int)numericUDBergamota.Value, conexion);
+
+                    //Insertamos en la lista de perfumes el perfume y habilitamos la opcion de exportar
+                    listaPerfumes.Add(new Perfume(envase, (float)numericUDAlcohol.Value, (float)numericUDBergamota.Value, (float)numericUDLavanda.Value, (float)numericUDSandalo.Value));
+                    btnExportar.Enabled = true;
+                    btnExportar.BackColor = Color.DarkGreen;
+                    MessageBox.Show("Pedido guardado con éxito en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar: " + ex.Message);
+                }
+            }
+
         }
 
         private bool comprobarCampos()
@@ -385,6 +427,45 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
 
             return true;
+        }
+
+        private void GuardarDetalle(int perfumeId, int esenciaId, int cantidad, SqlConnection conexion)
+        {
+            if (cantidad <= 0) return; // Si no hay cantidad, no guardamos fila
+            string query = "INSERT INTO DetallePerfumes (PerfumeId, EsenciaId, CantidadMl) VALUES (@pId, @eId, @cant)";
+            SqlCommand cmd = new SqlCommand(query, conexion);
+            cmd.Parameters.AddWithValue("@pId", perfumeId);
+            cmd.Parameters.AddWithValue("@eId", esenciaId);
+            cmd.Parameters.AddWithValue("@cant", cantidad);
+            cmd.ExecuteNonQuery();
+        }
+
+        //Cargamos los precios de las esencias desde la base de datos
+        private void CargarPreciosBaseDeDatos()
+        {
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conexion.Open();
+                    string query = "SELECT Nombre, PrecioPorMl FROM MateriasPrimas";
+                    SqlCommand cmd = new SqlCommand(query, conexion);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string nombre = reader["Nombre"].ToString().ToLower();
+                        float precio = Convert.ToSingle(reader["PrecioPorMl"]);
+                        if (nombre.Contains("alcohol")) precioAlcohol = precio;
+                        else if (nombre.Contains("lavanda")) precioLavanda = precio;
+                        else if (nombre.Contains("sandalo")) precioSandalo = precio;
+                        else if (nombre.Contains("bergamota")) precioBergamota = precio;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudieron cargar los precios: " + ex.Message);
+                }
+            }
         }
     }
 }
