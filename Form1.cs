@@ -67,23 +67,52 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             }
         }
 
+        private bool ExisteTabla(SqlConnection conexion, string nombreTabla)
+        {
+            // Esta consulta busca en las tablas del sistema de SQL Server
+            string checkQuery = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @NombreTabla";
+
+            using (SqlCommand checkCmd = new SqlCommand(checkQuery, conexion))
+            {
+                // Usamos parámetros por seguridad
+                checkCmd.Parameters.AddWithValue("@NombreTabla", nombreTabla);
+
+                // Ejecutamos y convertimos el resultado a número
+                int tableCount = (int)checkCmd.ExecuteScalar();
+
+                // Si el conteo es mayor a 0, la tabla existe
+                return tableCount > 0;
+            }
+        }
+
         private void InicializarBaseDeDatosCompleta()
         {
-            // Tu cadena de conexión (asegúrate de que el Database=LaboratorioBD sea correcto)
-            string connectionString = @"Server=.\SQLEXPRESS; Database=LaboratorioBD; Integrated Security=True; TrustServerCertificate=True;";
+            // Conectamos primero a master para asegurar que la base de datos existe
+            string connectionMaster = @"Server=.\SQLEXPRESS; Database=master; Integrated Security=True; TrustServerCertificate=True;";
+            string connectionDb = @"Server=.\SQLEXPRESS; Database=LaboratorioBD; Integrated Security=True; TrustServerCertificate=True;";
 
-            // Buscamos el archivo. Al usar Path.Combine con el nombre, 
-            // asumimos que el archivo se copia a la carpeta donde corre el .exe
+            // Buscamos el archivo SQL
             string rutaArchivoSql = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tablasYdatos.sql");
 
-            using (SqlConnection conexion = new SqlConnection(connectionString))
+            try
             {
-                try
+                // 1. Crear la base de datos si no existe
+                using (SqlConnection conexionMaster = new SqlConnection(connectionMaster))
+                {
+                    conexionMaster.Open();
+                    string queryCreateDB = "IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'LaboratorioBD') CREATE DATABASE LaboratorioBD;";
+                    using (SqlCommand cmd = new SqlCommand(queryCreateDB, conexionMaster))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                // 2. Conectar a LaboratorioBD para verificar tablas e insertar datos
+                using (SqlConnection conexion = new SqlConnection(connectionDb))
                 {
                     conexion.Open();
 
                     // Comprobamos si falta la tabla de MateriasPrimas o si está vacía.
-                    // Si falta esta, asumimos que hay que correr todo el script para restaurar precios.
                     if (!ExisteTabla(conexion, "MateriasPrimas") || !TieneDatos(conexion, "MateriasPrimas"))
                     {
                         if (!File.Exists(rutaArchivoSql))
@@ -94,7 +123,8 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                             return;
                         }
 
-                        string scriptCompleto = File.ReadAllText(rutaArchivoSql);
+                        // Leemos con Unicode (UTF-16) porque el archivo tiene BOM FF-FE de SQL Server
+                        string scriptCompleto = File.ReadAllText(rutaArchivoSql, Encoding.Unicode);
 
                         // Cortamos el script por los "GO"
                         string[] comandos = Regex.Split(scriptCompleto, @"^\s*GO\s*$", RegexOptions.Multiline | RegexOptions.IgnoreCase);
@@ -110,14 +140,14 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                             }
                         }
 
-                        MessageBox.Show("¡Base de datos configurada íntegramente con todas sus tablas y datos!",
+                        MessageBox.Show("¡Base de datos y tablas configuradas automáticamente!",
                             "Sincronización Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al inicializar las tablas: " + ex.Message, "Error de SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al inicializar la base de datos: " + ex.Message, "Error de SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
