@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelGrafica = new System.Windows.Forms.Panel();
+            this.circularProgresBar = new PF26_48848727Q_24470742F_77658838M_54800134N.CircularProgresBar();
             this.lblCapacidad = new System.Windows.Forms.Label();
             this.panelCoste = new System.Windows.Forms.Panel();
             this.btnExportar = new System.Windows.Forms.Button();
@@ -89,7 +90,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.listViewEnvases = new System.Windows.Forms.ListView();
             this.imageListEnvases = new System.Windows.Forms.ImageList(this.components);
-            this.circularProgresBar = new PF26_48848727Q_24470742F_77658838M_54800134N.CircularProgresBar();
             this.panel1.SuspendLayout();
             this.panelGrafica.SuspendLayout();
             this.panelCoste.SuspendLayout();
@@ -142,6 +142,19 @@
             this.panelGrafica.Name = "panelGrafica";
             this.panelGrafica.Size = new System.Drawing.Size(180, 134);
             this.panelGrafica.TabIndex = 6;
+            // 
+            // circularProgresBar
+            // 
+            this.circularProgresBar.BaseColor = System.Drawing.Color.LightGray;
+            this.circularProgresBar.LineWidth = 10;
+            this.circularProgresBar.Location = new System.Drawing.Point(44, 35);
+            this.circularProgresBar.Maximum = 100;
+            this.circularProgresBar.Name = "circularProgresBar";
+            this.circularProgresBar.ProgressColor = System.Drawing.Color.DodgerBlue;
+            this.circularProgresBar.Size = new System.Drawing.Size(100, 89);
+            this.circularProgresBar.TabIndex = 4;
+            this.circularProgresBar.Text = "circularProgresBar1";
+            this.circularProgresBar.Value = 0;
             // 
             // lblCapacidad
             // 
@@ -745,8 +758,8 @@
             this.lblEmail.Size = new System.Drawing.Size(250, 20);
             this.lblEmail.TabIndex = 40;
             this.lblEmail.Text = "Email";
+            this.lblEmail.Enter += new System.EventHandler(this.lblEmail_Enter);
             this.lblEmail.Leave += new System.EventHandler(this.lblEmail_Leave);
-            this.lblEmail.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblEmail_MouseDown);
             // 
             // lblNombre
             // 
@@ -758,8 +771,8 @@
             this.lblNombre.Size = new System.Drawing.Size(250, 20);
             this.lblNombre.TabIndex = 30;
             this.lblNombre.Text = "Nombre";
+            this.lblNombre.Enter += new System.EventHandler(this.lblNombre_Enter);
             this.lblNombre.Leave += new System.EventHandler(this.lblNombre_Leave);
-            this.lblNombre.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblNombre_MouseDown);
             // 
             // label3
             // 
@@ -819,19 +832,6 @@
             this.imageListEnvases.Images.SetKeyName(7, "pngegg (3).png");
             this.imageListEnvases.Images.SetKeyName(8, "pngegg (2).png");
             this.imageListEnvases.Images.SetKeyName(9, "pngegg (1).png");
-            // 
-            // circularProgresBar
-            // 
-            this.circularProgresBar.BaseColor = System.Drawing.Color.LightGray;
-            this.circularProgresBar.LineWidth = 10;
-            this.circularProgresBar.Location = new System.Drawing.Point(44, 35);
-            this.circularProgresBar.Maximum = 100;
-            this.circularProgresBar.Name = "circularProgresBar";
-            this.circularProgresBar.ProgressColor = System.Drawing.Color.DodgerBlue;
-            this.circularProgresBar.Size = new System.Drawing.Size(100, 89);
-            this.circularProgresBar.TabIndex = 4;
-            this.circularProgresBar.Text = "circularProgresBar1";
-            this.circularProgresBar.Value = 0;
             // 
             // FormLaboratorio
             // 

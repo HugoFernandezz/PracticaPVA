@@ -31,6 +31,9 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
             InicializarBaseDeDatosCompleta();
 
+
+            //Esto sirve para que el circulo que indica el progreso se vuelva verde
+            //al soltar los trackbars
             trackBarAlcohol.MouseCaptureChanged += VolverVerdeAlSoltar;
             trackBarLavanda.MouseCaptureChanged += VolverVerdeAlSoltar;
             trackBarSandalo.MouseCaptureChanged += VolverVerdeAlSoltar;
@@ -227,14 +230,6 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         }
 
 
-        private void lblNombre_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (lblNombre.Text == "Nombre")
-            {
-                lblNombre.Text = string.Empty;
-                lblNombre.ForeColor = Color.Black;
-            }
-        }
 
         private void lblNombre_Leave(object sender, EventArgs e)
         {
@@ -254,14 +249,6 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             }
         }
 
-        private void lblEmail_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (lblEmail.Text == "Email")
-            {
-                lblEmail.Text = string.Empty;
-                lblEmail.ForeColor = Color.Black;
-            }
-        }
         private void RevisarLimites(TrackBar tb, NumericUpDown num)
         {
             int max = circularProgresBar.Maximum;
@@ -314,7 +301,15 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             numericUDLavanda.Value = 0;
             numericUDSandalo.Value = 0;
             numericUDBergamota.Value = 0;
+
+            lblCAlcohol.Text = "0.00€";
+            lblCLavanda.Text = "0.00€";
+            lblCSandalo.Text = "0.00€";
+            lblCBergamota.Text = "0.00€";
+
+
             actualizarProgreso();
+            actualizarPrecioFinal();
         }
 
         private void VolverVerdeAlSoltar(object sender, EventArgs e)
@@ -392,6 +387,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                     btnExportar.Enabled = true;
                     btnExportar.BackColor = Color.DarkGreen;
                     MessageBox.Show("Pedido guardado con éxito en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiarForm();
                 }
                 catch (Exception ex)
                 {
@@ -466,6 +462,43 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                     MessageBox.Show("No se pudieron cargar los precios: " + ex.Message);
                 }
             }
+        }
+
+        private void lblNombre_Enter(object sender, EventArgs e)
+        {
+            if (lblNombre.Text == "Nombre")
+            {
+                lblNombre.Text = string.Empty;
+                lblNombre.ForeColor = Color.Black;
+            }
+        }
+
+        private void lblEmail_Enter(object sender, EventArgs e)
+        {
+            if (lblEmail.Text == "Email")
+            {
+                lblEmail.Text = string.Empty;
+                lblEmail.ForeColor = Color.Black;
+            }
+        }
+
+        private void limpiarForm()
+        {
+            //Reiniciamos los campos del cliente
+            lblNombre.Text = "Nombre";
+            lblNombre.ForeColor = Color.Silver;
+
+            lblEmail.Text = "Email";
+            lblEmail.ForeColor = Color.Silver;
+
+            //Desseleccioanmos el envase del ListView
+            if (listViewEnvases.SelectedItems.Count > 0)
+            {
+                listViewEnvases.SelectedItems[0].Selected = false;
+            }
+
+            //Reiniciar la mezcla y los precios (reutilizamos tu método actual)
+            btnReiniciarMezcla_Click(null, null);
         }
     }
 }
