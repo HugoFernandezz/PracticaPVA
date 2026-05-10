@@ -412,7 +412,11 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                     GuardarDetalle(idGenerado, 4, (int)numericUDBergamota.Value, conexion);
 
                     //Insertamos en la lista de perfumes el perfume y habilitamos la opcion de exportar
-                    listaPerfumes.Add(new Perfume(envase, (float)numericUDAlcohol.Value, (float)numericUDBergamota.Value, (float)numericUDLavanda.Value, (float)numericUDSandalo.Value));
+                    listaPerfumes.Add(new Perfume(envase, (float)numericUDAlcohol.Value, (float)numericUDBergamota.Value, (float)numericUDLavanda.Value, (float)numericUDSandalo.Value) { 
+                        Precio = total,
+                        NombreCliente = nombre,
+                        EmailCliente = email
+                    });
                     btnExportar.Enabled = true;
                     btnExportar.BackColor = Color.DarkGreen;
                     MessageBox.Show("Pedido guardado con éxito en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -528,6 +532,46 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
             //Reiniciar la mezcla y los precios (reutilizamos tu método actual)
             btnReiniciarMezcla_Click(null, null);
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("¿Quieres exportar en formato Excel?\n\nPulsa 'Sí' para Excel o 'No' para PDF.",
+                                          "Opciones de Exportación",
+                                          MessageBoxButtons.YesNoCancel,
+                                          MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.Yes)
+            {
+                ExportarExcel();
+            }
+            else if (dialog == DialogResult.No)
+            {
+               // ExportarAPDFNativo();
+            }
+        }
+
+        private void ExportarExcel()
+        {
+            SaveFileDialog save = new SaveFileDialog { Filter = "Archivo Excel CSV (*.csv)|*.csv", FileName = "Perfumes.csv" };
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(save.FileName, false, System.Text.Encoding.UTF8))
+                {
+                    
+                    sw.WriteLine("Cliente;Email;Envase;Alcohol;Bergamota;Lavanda;Sandalo;Total");
+
+                    // 2. Escribimos los datos de cada perfume
+                    foreach (Perfume p in listaPerfumes)
+                    {
+                        string envase = p.Envase.Nombre;
+
+                        sw.WriteLine($"{p.NombreCliente};{p.EmailCliente};{envase};{p.Alcohol};{p.Bergamota};{p.Lavanda};{p.Sandalo};{p.Precio}€");
+                    }
+                }
+                MessageBox.Show("Exportado con éxito.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
