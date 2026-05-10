@@ -50,21 +50,20 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             
         }
 
-        private bool ExisteTabla(SqlConnection conexion, string nombreTabla)
+        private bool TieneDatos(SqlConnection conexion, string nombreTabla)
         {
-            // Esta consulta busca en las tablas del sistema de SQL Server
-            string checkQuery = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @NombreTabla";
-
-            using (SqlCommand checkCmd = new SqlCommand(checkQuery, conexion))
+            string query = $"SELECT COUNT(*) FROM {nombreTabla}";
+            try
             {
-                // Usamos parámetros por seguridad
-                checkCmd.Parameters.AddWithValue("@NombreTabla", nombreTabla);
-
-                // Ejecutamos y convertimos el resultado a número
-                int tableCount = (int)checkCmd.ExecuteScalar();
-
-                // Si el conteo es mayor a 0, la tabla existe
-                return tableCount > 0;
+                using (SqlCommand cmd = new SqlCommand(query, conexion))
+                {
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
+            catch
+            {
+                return false;
             }
         }
 
@@ -83,9 +82,9 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                 {
                     conexion.Open();
 
-                    // Comprobamos si falta la tabla principal (Envases). 
-                    // Si falta esta, asumimos que hay que correr todo el script.
-                    if (!ExisteTabla(conexion, "Envases"))
+                    // Comprobamos si falta la tabla de MateriasPrimas o si está vacía.
+                    // Si falta esta, asumimos que hay que correr todo el script para restaurar precios.
+                    if (!ExisteTabla(conexion, "MateriasPrimas") || !TieneDatos(conexion, "MateriasPrimas"))
                     {
                         if (!File.Exists(rutaArchivoSql))
                         {
