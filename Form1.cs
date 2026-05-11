@@ -412,11 +412,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                     GuardarDetalle(idGenerado, 4, (int)numericUDBergamota.Value, conexion);
 
                     //Insertamos en la lista de perfumes el perfume y habilitamos la opcion de exportar
-                    listaPerfumes.Add(new Perfume(envase, (float)numericUDAlcohol.Value, (float)numericUDBergamota.Value, (float)numericUDLavanda.Value, (float)numericUDSandalo.Value) { 
-                        Precio = total,
-                        NombreCliente = nombre,
-                        EmailCliente = email
-                    });
+                    listaPerfumes.Add(new Perfume(envase, (float)numericUDAlcohol.Value, (float)numericUDLavanda.Value, (float)numericUDSandalo.Value, (float)numericUDBergamota.Value));
                     btnExportar.Enabled = true;
                     btnExportar.BackColor = Color.DarkGreen;
                     MessageBox.Show("Pedido guardado con éxito en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -530,7 +526,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                 listViewEnvases.SelectedItems[0].Selected = false;
             }
 
-            //Reiniciar la mezcla y los precios (reutilizamos tu método actual)
+            //Reiniciar la mezcla y los precios
             btnReiniciarMezcla_Click(null, null);
         }
 
