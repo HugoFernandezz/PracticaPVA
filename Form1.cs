@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.IO;
-using System.Text.RegularExpressions;
+using System.Xml.Linq;
+
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
 
 namespace PF26_48848727Q_24470742F_77658838M_54800134N
 {
@@ -414,6 +420,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                     //Insertamos en la lista de perfumes el perfume y habilitamos la opcion de exportar
                     listaPerfumes.Add(new Perfume(envase, (float)numericUDAlcohol.Value, (float)numericUDLavanda.Value, (float)numericUDSandalo.Value, (float)numericUDBergamota.Value));
                     btnExportar.Enabled = true;
+                    btnHistorial.Enabled = true;
                     btnExportar.BackColor = Color.DarkGreen;
                     MessageBox.Show("Pedido guardado con éxito en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiarForm();
@@ -543,31 +550,133 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             }
             else if (dialog == DialogResult.No)
             {
-               // ExportarAPDFNativo();
+               ExportarPDF();
             }
         }
 
         private void ExportarExcel()
         {
-            SaveFileDialog save = new SaveFileDialog { Filter = "Archivo Excel CSV (*.csv)|*.csv", FileName = "Perfumes.csv" };
+            if (listaPerfumes.Count == 0) 
+            {
+                MessageBox.Show("No se ha hecho ningún pedido todavía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            SaveFileDialog save = new SaveFileDialog { Filter = "Archivo Excel CSV (*.csv)|*.csv", FileName = "Ultimo_Pedido.csv" };
 
             if (save.ShowDialog() == DialogResult.OK)
             {
                 using (StreamWriter sw = new StreamWriter(save.FileName, false, System.Text.Encoding.UTF8))
                 {
-                    
                     sw.WriteLine("Cliente;Email;Envase;Alcohol;Bergamota;Lavanda;Sandalo;Total");
 
-                    // 2. Escribimos los datos de cada perfume
-                    foreach (Perfume p in listaPerfumes)
-                    {
-                        string envase = p.Envase.Nombre;
+                    // Obtenemos solo el último perfume
+                    Perfume p = listaPerfumes.Last();
+                    string envase = p.Envase.Nombre;
 
-                        sw.WriteLine($"{p.NombreCliente};{p.EmailCliente};{envase};{p.Alcohol};{p.Bergamota};{p.Lavanda};{p.Sandalo};{p.Precio}€");
-                    }
+                    sw.WriteLine($"{p.NombreCliente};{p.EmailCliente};{envase};{p.Alcohol};{p.Bergamota};{p.Lavanda};{p.Sandalo};{p.Precio}€");
                 }
                 MessageBox.Show("Exportado con éxito.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void ExportarPDF()
+        {
+            // 1. Obtener los datos del último pedido
+            if (listaPerfumes.Count == 0) return;
+            Perfume ultimoPedido = listaPerfumes.Last();
+
+            // 2. Configurar el diálogo de guardado
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Archivos PDF (*.pdf)|*.pdf";
+            sfd.FileName = "Resumen_Pedido.pdf";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (PdfWriter writer = new PdfWriter(sfd.FileName))
+                    using (PdfDocument pdf = new PdfDocument(writer))
+                    using (Document document = new Document(pdf))
+                    {
+                        // Título
+                        document.Add(new Paragraph("RESUMEN DEL PEDIDO - LABORATORIO PERFUMES")
+                            .SetTextAlignment(TextAlignment.CENTER)
+                            .SetFontSize(20));
+
+                        // Usamos los datos de "ultimoPedido" porque las etiquetas (Labels) ya están vacías
+                        document.Add(new Paragraph($"Cliente: {ultimoPedido.NombreCliente}"));
+                        document.Add(new Paragraph($"Email: {ultimoPedido.EmailCliente}"));
+                        document.Add(new Paragraph($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm}"));
+                        document.Add(new Paragraph("\n"));
+
+                        // Tabla de detalles
+                        Table table = new Table(2).UseAllAvailableWidth();
+                        table.AddHeaderCell("Concepto");
+                        table.AddHeaderCell("Detalle");
+
+                        table.AddCell("Envase");
+                        table.AddCell($"{ultimoPedido.Envase?.Nombre ?? "N/A"} ({ultimoPedido.Envase?.CapacidadMl ?? 0}ml)");
+
+                        table.AddCell("Alcohol");
+                        table.AddCell($"{ultimoPedido.Alcohol} ml");
+
+                        table.AddCell("Lavanda");
+                        table.AddCell($"{ultimoPedido.Lavanda} ml");
+
+                        table.AddCell("Sándalo");
+                        table.AddCell($"{ultimoPedido.Sandalo} ml");
+
+                        table.AddCell("Bergamota");
+                        table.AddCell($"{ultimoPedido.Bergamota} ml");
+
+                        document.Add(table);
+
+                        // Total
+                        document.Add(new Paragraph($"\nTOTAL A PAGAR: {ultimoPedido.Precio:0.00}EUR")
+                            .SetTextAlignment(TextAlignment.RIGHT)
+
+                            .SetFontSize(14));
+                    }
+
+                    MessageBox.Show("PDF generado con éxito.", "Exportar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    string errorReal = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                    MessageBox.Show("Error real: " + errorReal, "Fallo detectado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            
+
+                btnHistorial.Enabled = true;
+                SaveFileDialog save = new SaveFileDialog { Filter = "Archivo Excel CSV (*.csv)|*.csv", FileName = "Perfumes.csv" };
+
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    using (StreamWriter sw = new StreamWriter(save.FileName, false, System.Text.Encoding.UTF8))
+                    {
+
+                        sw.WriteLine("Cliente;Email;Envase;Alcohol;Bergamota;Lavanda;Sandalo;Total");
+
+                        // 2. Escribimos los datos de cada perfume
+                        foreach (Perfume p in listaPerfumes)
+                        {
+                            string envase = p.Envase.Nombre;
+
+                            sw.WriteLine($"{p.NombreCliente};{p.EmailCliente};{envase};{p.Alcohol};{p.Bergamota};{p.Lavanda};{p.Sandalo};{p.Precio}€");
+                        }
+                    }
+                    MessageBox.Show("Exportado con éxito.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            
+                
         }
     }
 }

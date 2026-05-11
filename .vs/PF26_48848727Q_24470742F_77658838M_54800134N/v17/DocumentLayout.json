@@ -1,18 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\",
+  "WorkspaceRootPath": "C:\\Users\\natal\\PracticaPVA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\hugaz\\documents\\practicapva\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\natal\\PracticaPVA\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\hugaz\\Documents\\PracticaPVA\\perfume.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\natal\\PracticaPVA\\perfume.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:perfume.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\hugaz\\Documents\\PracticaPVA\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +22,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Form1.cs",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAABICAAAAAAAAAAAQwCICAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAADcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-10T13:43:13.981Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Perfume.cs",
-              "DocumentMoniker": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Perfume.cs",
-              "RelativeDocumentMoniker": "Perfume.cs",
-              "ToolTip": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Perfume.cs",
-              "RelativeToolTip": "Perfume.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-10T16:17:15.933Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Perfume.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Perfume.cs",
+              "RelativeDocumentMoniker": "Perfume.cs",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Perfume.cs",
+              "RelativeToolTip": "Perfume.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-10T16:17:15.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\natal\\PracticaPVA\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-07T09:50:59.196Z"
+              "WhenOpened": "2026-05-07T09:50:59.196Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
