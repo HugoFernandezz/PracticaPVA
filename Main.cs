@@ -691,5 +691,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             //Lo traemos al frente por si acaso
             pnlInicio.BringToFront();
         }
+
+        
     }
 }
