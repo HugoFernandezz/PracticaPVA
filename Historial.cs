@@ -39,6 +39,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                 SELECT 
                     P.Id, 
                     P.NombreCliente AS [Cliente], 
+                    P.EmailCliente AS [Email],
                     E.Nombre AS [Envase],
                     -- Buscamos la cantidad de cada esencia por su ID
                     ISNULL((SELECT CantidadMl FROM DetallePerfumes WHERE PerfumeId = P.Id AND EsenciaId = 1), 0) AS [Alcohol (ml)],
@@ -67,116 +68,123 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void btnExportarTodo_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("¿Quieres exportar en formato Excel?\n\nPulsa 'Sí' para Excel o 'No' para PDF.",
-                                          "Opciones de Exportación",
-                                          MessageBoxButtons.YesNoCancel,
-                                          MessageBoxIcon.Question);
+            ExportarTodo exportarTodoForm = new ExportarTodo(dgvHistorial);
 
-            if (dialog == DialogResult.Yes)
+            exportarTodoForm.ShowDialog();
+        }
+
+        private void btnEliminarRegistro_Click(object sender, EventArgs e)
+        {
+            //Veriricar que el usuario tenga alguna fila seleccionada
+            if (dgvHistorial.SelectedRows.Count > 0)
             {
-                ExportarExcel();
+                //Un dialog para confirmar la accion
+                DialogResult result = MessageBox.Show(
+                    $"¿Estás seguro de que deseas eliminar {dgvHistorial.SelectedRows.Count} pedido(s) permanentemente?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    using (SqlConnection conexion = new SqlConnection(connectionString))
+                    {
+                        try
+                        {
+                            conexion.Open();
+
+                            //Recorremos todas las filas seleccionadas (por si seleccionas varias)
+                            foreach (DataGridViewRow fila in dgvHistorial.SelectedRows)
+                            {
+                                //Obtenemos el ID del perfume de la celda "Id"
+                                int idEliminar = Convert.ToInt32(fila.Cells["Id"].Value);
+
+                                /* IMPORTANTE: como el perfume lleva asociado "DetallesPerfume" los cuales se
+                                 * asocia mediante una FK, debemos eliminar primero estos registros de DetallesPerfume
+                                 */
+                                string sqlDetalles = "DELETE FROM DetallePerfumes WHERE PerfumeId = @id";
+                                using (SqlCommand cmdDet = new SqlCommand(sqlDetalles, conexion))
+                                {
+                                    cmdDet.Parameters.AddWithValue("@id", idEliminar);
+                                    cmdDet.ExecuteNonQuery();
+                                }
+                                // Ahora ya podemos borrar directamente el perfume
+                                string sqlPerfume = "DELETE FROM Perfumes WHERE Id = @id";
+                                using (SqlCommand cmdPerf = new SqlCommand(sqlPerfume, conexion))
+                                {
+                                    cmdPerf.Parameters.AddWithValue("@id", idEliminar);
+                                    cmdPerf.ExecuteNonQuery();
+                                }
+                            }
+                            MessageBox.Show("Eliminación completada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            //Recargamos los datos para q se actualice el componente del gridview
+                            CargarDatos();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al eliminar: " + ex.Message, "Error de SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
             }
-            else if (dialog == DialogResult.No)
+            else
             {
-                ExportarPDF();
+                MessageBox.Show("Por favor, selecciona una o varias filas completas haciendo clic en la parte izquierda de la tabla.",
+                                "Selección necesaria", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void ExportarExcel()
+        private void btnModificarRegistro_Click(object sender, EventArgs e)
         {
-            if (dgvHistorial.Rows.Count == 0)
+            if (dgvHistorial.CurrentCell == null) return;
+            //Recuperamos todo lo que necesitamos de la celda que esta seleccionada
+            string columnaVisible = dgvHistorial.CurrentCell.OwningColumn.Name;
+            int idPerfume = Convert.ToInt32(dgvHistorial.CurrentRow.Cells["Id"].Value);
+            string valorActual = dgvHistorial.CurrentCell.Value.ToString();
+
+            //Como en las columnas que aparecen en el gridView no son los nombre reales que tienen
+            //Las columnas en la base de datos, tenemos que hacer esta "conversion"
+            string columnaSQL = "";
+            if (columnaVisible == "Cliente") columnaSQL = "NombreCliente";
+            else if (columnaVisible == "Email") columnaSQL = "EmailCliente";
+            if (string.IsNullOrEmpty(columnaSQL))
             {
-                MessageBox.Show("No hay datos en el historial para exportar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Este campo no se puede editar directamente para proteger la integridad de los costes.", "Aviso");
                 return;
             }
-
-            SaveFileDialog save = new SaveFileDialog { Filter = "Archivo Excel CSV (*.csv)|*.csv", FileName = "Historial_Completo.csv" };
-
-            if (save.ShowDialog() == DialogResult.OK)
+            //Abrimos el Form de editar campo
+            using (FormEditarCampo popup = new FormEditarCampo(columnaVisible, valorActual))
             {
-                try
+                if (popup.ShowDialog() == DialogResult.OK)
                 {
-                    using (StreamWriter sw = new StreamWriter(save.FileName, false, Encoding.UTF8))
-                    {
-                        //escribir cabeceras 
-                        string columnas = "";
-                        for (int i = 0; i < dgvHistorial.ColumnCount; i++)
-                        {
-                            columnas += dgvHistorial.Columns[i].HeaderText + (i < dgvHistorial.ColumnCount - 1 ? ";" : "");
-                        }
-                        sw.WriteLine(columnas);
-
-                        //Escribir las filas
-                        foreach (DataGridViewRow fila in dgvHistorial.Rows)
-                        {
-                            if (!fila.IsNewRow)
-                            {
-                                string linea = "";
-                                for (int i = 0; i < dgvHistorial.ColumnCount; i++)
-                                {
-                                    linea += (fila.Cells[i].Value?.ToString() ?? "") + (i < dgvHistorial.ColumnCount - 1 ? ";" : "");
-                                }
-                                sw.WriteLine(linea);
-                            }
-                        }
-                    }
-                    MessageBox.Show("Historial exportado a Excel con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al exportar: " + ex.Message);
+                    string nuevoValor = popup.NuevoValor;
+                    //Le pasamos el id del perfume, la columna que tiene q modificar y el nuevo valor
+                    ActualizarBaseDeDatos(idPerfume, columnaSQL, nuevoValor);
+                    CargarDatos();
                 }
             }
         }
 
-        private void ExportarPDF()
+        private void ActualizarBaseDeDatos(int id, string columnaSQL, string nuevoValor)
         {
-            if (dgvHistorial.Rows.Count == 0) return;
-
-            SaveFileDialog sfd = new SaveFileDialog { Filter = "Archivos PDF (*.pdf)|*.pdf", FileName = "Historial_Detallado.pdf" };
-
-            if (sfd.ShowDialog() == DialogResult.OK)
+            using (SqlConnection conexion = new SqlConnection(connectionString))
             {
                 try
                 {
-                    using (PdfWriter writer = new PdfWriter(sfd.FileName))
-                    using (PdfDocument pdf = new PdfDocument(writer))
-                    using (Document document = new Document(pdf))
+                    conexion.Open();
+                    // Usamos el nombre de la columna dinámicamente y el valor por parámetro
+                    string sql = $"UPDATE Perfumes SET {columnaSQL} = @valor WHERE Id = @id";
+                    using (SqlCommand cmd = new SqlCommand(sql, conexion))
                     {
-                        document.Add(new Paragraph("HISTORIAL COMPLETO DE PEDIDOS")
-                            .SetTextAlignment(TextAlignment.CENTER)
-                            .SetFontSize(18));
-
-                        document.Add(new Paragraph($"Generado el: {DateTime.Now:dd/MM/yyyy HH:mm}\n\n"));
-
-                        //tabla con el nºcolumnas necesarias
-                        Table table = new Table(dgvHistorial.ColumnCount).UseAllAvailableWidth();
-
-                        //cabeceras
-                        foreach (DataGridViewColumn col in dgvHistorial.Columns)
-                        {
-                            table.AddHeaderCell(new Cell().Add(new Paragraph(col.HeaderText)));
-                        }
-
-                        //filas
-                        foreach (DataGridViewRow row in dgvHistorial.Rows)
-                        {
-                            if (!row.IsNewRow)
-                            {
-                                foreach (DataGridViewCell cell in row.Cells)
-                                {
-                                    table.AddCell(cell.Value?.ToString() ?? "");
-                                }
-                            }
-                        }
-
-                        document.Add(table);
+                        cmd.Parameters.AddWithValue("@valor", nuevoValor);
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.ExecuteNonQuery();
                     }
-                    MessageBox.Show("PDF generado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("¡Dato actualizado con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al generar PDF: " + ex.Message);
+                    MessageBox.Show("Error al actualizar la base de datos: " + ex.Message);
                 }
             }
         }

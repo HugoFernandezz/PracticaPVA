@@ -163,6 +163,24 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Envase.cs" />
+    <Compile Include="Exportar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Exportar.Designer.cs">
+      <DependentUpon>Exportar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExportarTodo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportarTodo.Designer.cs">
+      <DependentUpon>ExportarTodo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditarCampo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditarCampo.Designer.cs">
+      <DependentUpon>FormEditarCampo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Historial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +202,15 @@
     <Compile Include="Perfume.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Exportar.resx">
+      <DependentUpon>Exportar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportarTodo.resx">
+      <DependentUpon>ExportarTodo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarCampo.resx">
+      <DependentUpon>FormEditarCampo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>
     </EmbeddedResource>

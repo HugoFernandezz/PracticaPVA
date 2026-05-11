@@ -40,39 +40,37 @@
             this.dgvHistorial.AllowUserToAddRows = false;
             this.dgvHistorial.AllowUserToDeleteRows = false;
             this.dgvHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHistorial.Location = new System.Drawing.Point(49, 92);
-            this.dgvHistorial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvHistorial.Location = new System.Drawing.Point(37, 75);
             this.dgvHistorial.Name = "dgvHistorial";
             this.dgvHistorial.RowHeadersWidth = 51;
-            this.dgvHistorial.Size = new System.Drawing.Size(1020, 460);
+            this.dgvHistorial.Size = new System.Drawing.Size(765, 374);
             this.dgvHistorial.TabIndex = 0;
             // 
             // btnEliminarRegistro
             // 
-            this.btnEliminarRegistro.Location = new System.Drawing.Point(455, 37);
-            this.btnEliminarRegistro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminarRegistro.Location = new System.Drawing.Point(341, 30);
             this.btnEliminarRegistro.Name = "btnEliminarRegistro";
-            this.btnEliminarRegistro.Size = new System.Drawing.Size(175, 28);
+            this.btnEliminarRegistro.Size = new System.Drawing.Size(131, 23);
             this.btnEliminarRegistro.TabIndex = 1;
             this.btnEliminarRegistro.Text = "Eliminar registro";
             this.btnEliminarRegistro.UseVisualStyleBackColor = true;
+            this.btnEliminarRegistro.Click += new System.EventHandler(this.btnEliminarRegistro_Click);
             // 
             // btnModificarRegistro
             // 
-            this.btnModificarRegistro.Location = new System.Drawing.Point(692, 37);
-            this.btnModificarRegistro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificarRegistro.Location = new System.Drawing.Point(519, 30);
             this.btnModificarRegistro.Name = "btnModificarRegistro";
-            this.btnModificarRegistro.Size = new System.Drawing.Size(153, 28);
+            this.btnModificarRegistro.Size = new System.Drawing.Size(115, 23);
             this.btnModificarRegistro.TabIndex = 2;
             this.btnModificarRegistro.Text = "Modificar registro";
             this.btnModificarRegistro.UseVisualStyleBackColor = true;
+            this.btnModificarRegistro.Click += new System.EventHandler(this.btnModificarRegistro_Click);
             // 
             // btnExportarTodo
             // 
-            this.btnExportarTodo.Location = new System.Drawing.Point(904, 36);
-            this.btnExportarTodo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExportarTodo.Location = new System.Drawing.Point(678, 29);
             this.btnExportarTodo.Name = "btnExportarTodo";
-            this.btnExportarTodo.Size = new System.Drawing.Size(147, 28);
+            this.btnExportarTodo.Size = new System.Drawing.Size(110, 23);
             this.btnExportarTodo.TabIndex = 3;
             this.btnExportarTodo.Text = "Exportar todo";
             this.btnExportarTodo.UseVisualStyleBackColor = true;
@@ -80,14 +78,13 @@
             // 
             // Historial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnExportarTodo);
             this.Controls.Add(this.btnModificarRegistro);
             this.Controls.Add(this.btnEliminarRegistro);
             this.Controls.Add(this.dgvHistorial);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Historial";
             this.Text = "Historial";
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).EndInit();

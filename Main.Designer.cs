@@ -116,9 +116,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(2, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(529, 50);
+            this.label1.Size = new System.Drawing.Size(427, 41);
             this.label1.TabIndex = 0;
             this.label1.Text = "Laboratorio de perfume único";
             // 
@@ -132,9 +133,9 @@
             this.pnlInicio.Controls.Add(this.panelEnvase);
             this.pnlInicio.Controls.Add(this.label1);
             this.pnlInicio.Location = new System.Drawing.Point(0, 0);
-            this.pnlInicio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlInicio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlInicio.Name = "pnlInicio";
-            this.pnlInicio.Size = new System.Drawing.Size(1136, 624);
+            this.pnlInicio.Size = new System.Drawing.Size(852, 507);
             this.pnlInicio.TabIndex = 1;
             // 
             // panelGrafica
@@ -142,19 +143,20 @@
             this.panelGrafica.BackColor = System.Drawing.Color.White;
             this.panelGrafica.Controls.Add(this.circularProgresBar);
             this.panelGrafica.Controls.Add(this.lblCapacidad);
-            this.panelGrafica.Location = new System.Drawing.Point(872, 432);
-            this.panelGrafica.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelGrafica.Location = new System.Drawing.Point(654, 351);
+            this.panelGrafica.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelGrafica.Name = "panelGrafica";
-            this.panelGrafica.Size = new System.Drawing.Size(240, 165);
+            this.panelGrafica.Size = new System.Drawing.Size(180, 134);
             this.panelGrafica.TabIndex = 6;
             // 
             // lblCapacidad
             // 
             this.lblCapacidad.AutoSize = true;
             this.lblCapacidad.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCapacidad.Location = new System.Drawing.Point(11, 12);
+            this.lblCapacidad.Location = new System.Drawing.Point(8, 10);
+            this.lblCapacidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCapacidad.Name = "lblCapacidad";
-            this.lblCapacidad.Size = new System.Drawing.Size(206, 19);
+            this.lblCapacidad.Size = new System.Drawing.Size(161, 16);
             this.lblCapacidad.TabIndex = 3;
             this.lblCapacidad.Text = "Capacidad del envase (0 ml): ";
             // 
@@ -177,10 +179,10 @@
             this.panelCoste.Controls.Add(this.label26);
             this.panelCoste.Controls.Add(this.label6);
             this.panelCoste.Controls.Add(this.label7);
-            this.panelCoste.Location = new System.Drawing.Point(872, 75);
-            this.panelCoste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelCoste.Location = new System.Drawing.Point(654, 61);
+            this.panelCoste.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelCoste.Name = "panelCoste";
-            this.panelCoste.Size = new System.Drawing.Size(239, 315);
+            this.panelCoste.Size = new System.Drawing.Size(180, 256);
             this.panelCoste.TabIndex = 5;
             // 
             // btnExportar
@@ -189,10 +191,10 @@
             this.btnExportar.Enabled = false;
             this.btnExportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportar.ForeColor = System.Drawing.Color.FloralWhite;
-            this.btnExportar.Location = new System.Drawing.Point(19, 284);
-            this.btnExportar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExportar.Location = new System.Drawing.Point(14, 231);
+            this.btnExportar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(187, 25);
+            this.btnExportar.Size = new System.Drawing.Size(140, 20);
             this.btnExportar.TabIndex = 16;
             this.btnExportar.Text = "Exportar";
             this.btnExportar.UseVisualStyleBackColor = false;
@@ -203,10 +205,10 @@
             this.btnFinPedido.BackColor = System.Drawing.Color.Purple;
             this.btnFinPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinPedido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFinPedido.Location = new System.Drawing.Point(19, 249);
-            this.btnFinPedido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnFinPedido.Location = new System.Drawing.Point(14, 202);
+            this.btnFinPedido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnFinPedido.Name = "btnFinPedido";
-            this.btnFinPedido.Size = new System.Drawing.Size(187, 30);
+            this.btnFinPedido.Size = new System.Drawing.Size(140, 24);
             this.btnFinPedido.TabIndex = 15;
             this.btnFinPedido.Text = "FInalizar Pedido";
             this.btnFinPedido.UseVisualStyleBackColor = false;
@@ -216,9 +218,10 @@
             // 
             this.lblCTotal.AutoSize = true;
             this.lblCTotal.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
-            this.lblCTotal.Location = new System.Drawing.Point(151, 219);
+            this.lblCTotal.Location = new System.Drawing.Point(113, 178);
+            this.lblCTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCTotal.Name = "lblCTotal";
-            this.lblCTotal.Size = new System.Drawing.Size(66, 27);
+            this.lblCTotal.Size = new System.Drawing.Size(55, 22);
             this.lblCTotal.TabIndex = 14;
             this.lblCTotal.Text = "0.00€";
             // 
@@ -226,27 +229,30 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
-            this.label31.Location = new System.Drawing.Point(11, 219);
+            this.label31.Location = new System.Drawing.Point(8, 178);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(132, 27);
+            this.label31.Size = new System.Drawing.Size(108, 22);
             this.label31.TabIndex = 13;
             this.label31.Text = "Coste Total:";
             // 
             // label30
             // 
             this.label30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label30.Location = new System.Drawing.Point(13, 209);
+            this.label30.Location = new System.Drawing.Point(10, 170);
+            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(211, 2);
+            this.label30.Size = new System.Drawing.Size(158, 2);
             this.label30.TabIndex = 12;
             // 
             // lblCBergamota
             // 
             this.lblCBergamota.AutoSize = true;
             this.lblCBergamota.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCBergamota.Location = new System.Drawing.Point(165, 178);
+            this.lblCBergamota.Location = new System.Drawing.Point(124, 145);
+            this.lblCBergamota.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCBergamota.Name = "lblCBergamota";
-            this.lblCBergamota.Size = new System.Drawing.Size(49, 19);
+            this.lblCBergamota.Size = new System.Drawing.Size(38, 16);
             this.lblCBergamota.TabIndex = 11;
             this.lblCBergamota.Text = "0.00€";
             // 
@@ -254,9 +260,10 @@
             // 
             this.lblCSandalo.AutoSize = true;
             this.lblCSandalo.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCSandalo.Location = new System.Drawing.Point(165, 146);
+            this.lblCSandalo.Location = new System.Drawing.Point(124, 119);
+            this.lblCSandalo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCSandalo.Name = "lblCSandalo";
-            this.lblCSandalo.Size = new System.Drawing.Size(49, 19);
+            this.lblCSandalo.Size = new System.Drawing.Size(38, 16);
             this.lblCSandalo.TabIndex = 10;
             this.lblCSandalo.Text = "0.00€";
             // 
@@ -264,9 +271,10 @@
             // 
             this.lblCLavanda.AutoSize = true;
             this.lblCLavanda.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCLavanda.Location = new System.Drawing.Point(165, 112);
+            this.lblCLavanda.Location = new System.Drawing.Point(124, 91);
+            this.lblCLavanda.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCLavanda.Name = "lblCLavanda";
-            this.lblCLavanda.Size = new System.Drawing.Size(49, 19);
+            this.lblCLavanda.Size = new System.Drawing.Size(38, 16);
             this.lblCLavanda.TabIndex = 9;
             this.lblCLavanda.Text = "0.00€";
             // 
@@ -274,9 +282,10 @@
             // 
             this.lblCAlcohol.AutoSize = true;
             this.lblCAlcohol.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.lblCAlcohol.Location = new System.Drawing.Point(165, 75);
+            this.lblCAlcohol.Location = new System.Drawing.Point(124, 61);
+            this.lblCAlcohol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCAlcohol.Name = "lblCAlcohol";
-            this.lblCAlcohol.Size = new System.Drawing.Size(49, 19);
+            this.lblCAlcohol.Size = new System.Drawing.Size(38, 16);
             this.lblCAlcohol.TabIndex = 8;
             this.lblCAlcohol.Text = "0.00€";
             // 
@@ -284,9 +293,10 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.label29.Location = new System.Drawing.Point(13, 180);
+            this.label29.Location = new System.Drawing.Point(10, 146);
+            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(134, 19);
+            this.label29.Size = new System.Drawing.Size(106, 16);
             this.label29.TabIndex = 7;
             this.label29.Text = "Coste Bergamota:";
             // 
@@ -294,9 +304,10 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.label28.Location = new System.Drawing.Point(12, 146);
+            this.label28.Location = new System.Drawing.Point(9, 119);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(111, 19);
+            this.label28.Size = new System.Drawing.Size(87, 16);
             this.label28.TabIndex = 6;
             this.label28.Text = "Coste Sándalo:";
             // 
@@ -304,9 +315,10 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.label27.Location = new System.Drawing.Point(15, 112);
+            this.label27.Location = new System.Drawing.Point(11, 91);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(114, 19);
+            this.label27.Size = new System.Drawing.Size(89, 16);
             this.label27.TabIndex = 5;
             this.label27.Text = "Coste Lavanda:";
             // 
@@ -314,9 +326,10 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.label26.Location = new System.Drawing.Point(15, 75);
+            this.label26.Location = new System.Drawing.Point(11, 61);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(109, 19);
+            this.label26.Size = new System.Drawing.Size(85, 16);
             this.label26.TabIndex = 4;
             this.label26.Text = "Coste Alcohol:";
             // 
@@ -324,9 +337,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(13, 37);
+            this.label6.Location = new System.Drawing.Point(10, 30);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 19);
+            this.label6.Size = new System.Drawing.Size(82, 16);
             this.label6.TabIndex = 3;
             this.label6.Text = "Coste Envase:";
             // 
@@ -334,9 +348,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(11, 10);
+            this.label7.Location = new System.Drawing.Point(8, 8);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(206, 27);
+            this.label7.Size = new System.Drawing.Size(164, 22);
             this.label7.TabIndex = 2;
             this.label7.Text = "Resumen de costes";
             // 
@@ -373,20 +388,20 @@
             this.panelComposicion.Controls.Add(this.trackBarAlcohol);
             this.panelComposicion.Controls.Add(this.label8);
             this.panelComposicion.Controls.Add(this.label4);
-            this.panelComposicion.Location = new System.Drawing.Point(444, 75);
-            this.panelComposicion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelComposicion.Location = new System.Drawing.Point(333, 61);
+            this.panelComposicion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelComposicion.Name = "panelComposicion";
-            this.panelComposicion.Size = new System.Drawing.Size(403, 526);
+            this.panelComposicion.Size = new System.Drawing.Size(302, 427);
             this.panelComposicion.TabIndex = 3;
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Purple;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(35, 471);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Location = new System.Drawing.Point(26, 383);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 36);
+            this.button2.Size = new System.Drawing.Size(110, 29);
             this.button2.TabIndex = 0;
             this.button2.Text = "+ Añadir Esencia";
             this.button2.UseVisualStyleBackColor = false;
@@ -394,10 +409,10 @@
             // btnReiniciarMezcla
             // 
             this.btnReiniciarMezcla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
-            this.btnReiniciarMezcla.Location = new System.Drawing.Point(239, 471);
-            this.btnReiniciarMezcla.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReiniciarMezcla.Location = new System.Drawing.Point(179, 383);
+            this.btnReiniciarMezcla.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReiniciarMezcla.Name = "btnReiniciarMezcla";
-            this.btnReiniciarMezcla.Size = new System.Drawing.Size(147, 36);
+            this.btnReiniciarMezcla.Size = new System.Drawing.Size(110, 29);
             this.btnReiniciarMezcla.TabIndex = 1;
             this.btnReiniciarMezcla.Text = "Reiniciar Mezcla";
             this.btnReiniciarMezcla.UseVisualStyleBackColor = false;
@@ -406,15 +421,15 @@
             // numericUDBergamota
             // 
             this.numericUDBergamota.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUDBergamota.Location = new System.Drawing.Point(288, 389);
-            this.numericUDBergamota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUDBergamota.Location = new System.Drawing.Point(216, 316);
+            this.numericUDBergamota.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numericUDBergamota.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.numericUDBergamota.Name = "numericUDBergamota";
-            this.numericUDBergamota.Size = new System.Drawing.Size(75, 22);
+            this.numericUDBergamota.Size = new System.Drawing.Size(56, 19);
             this.numericUDBergamota.TabIndex = 28;
             this.numericUDBergamota.ValueChanged += new System.EventHandler(this.numericUDBergamota_ValueChanged);
             // 
@@ -422,9 +437,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(235, 430);
+            this.label5.Location = new System.Drawing.Point(176, 349);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 16);
+            this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 27;
             this.label5.Text = "10ml";
             // 
@@ -432,9 +448,10 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(141, 430);
+            this.label18.Location = new System.Drawing.Point(106, 349);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(15, 16);
+            this.label18.Size = new System.Drawing.Size(14, 13);
             this.label18.TabIndex = 26;
             this.label18.Text = "5";
             // 
@@ -442,18 +459,19 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(31, 430);
+            this.label19.Location = new System.Drawing.Point(23, 349);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(15, 16);
+            this.label19.Size = new System.Drawing.Size(14, 13);
             this.label19.TabIndex = 25;
             this.label19.Text = "0";
             // 
             // trackBarBergamota
             // 
-            this.trackBarBergamota.Location = new System.Drawing.Point(21, 389);
-            this.trackBarBergamota.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.trackBarBergamota.Location = new System.Drawing.Point(16, 316);
+            this.trackBarBergamota.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.trackBarBergamota.Name = "trackBarBergamota";
-            this.trackBarBergamota.Size = new System.Drawing.Size(261, 56);
+            this.trackBarBergamota.Size = new System.Drawing.Size(196, 45);
             this.trackBarBergamota.TabIndex = 29;
             this.trackBarBergamota.TickFrequency = 5;
             this.trackBarBergamota.Scroll += new System.EventHandler(this.trackBarBergamota_Scroll);
@@ -462,32 +480,34 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(17, 366);
+            this.label20.Location = new System.Drawing.Point(13, 297);
+            this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(163, 19);
+            this.label20.Size = new System.Drawing.Size(129, 16);
             this.label20.TabIndex = 24;
             this.label20.Text = "Esencia de Bergamota";
             // 
             // label21
             // 
             this.label21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label21.Location = new System.Drawing.Point(21, 357);
+            this.label21.Location = new System.Drawing.Point(16, 290);
+            this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(369, 2);
+            this.label21.Size = new System.Drawing.Size(277, 2);
             this.label21.TabIndex = 22;
             // 
             // numericUDSandalo
             // 
             this.numericUDSandalo.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUDSandalo.Location = new System.Drawing.Point(292, 286);
-            this.numericUDSandalo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUDSandalo.Location = new System.Drawing.Point(219, 232);
+            this.numericUDSandalo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numericUDSandalo.Maximum = new decimal(new int[] {
             15,
             0,
             0,
             0});
             this.numericUDSandalo.Name = "numericUDSandalo";
-            this.numericUDSandalo.Size = new System.Drawing.Size(75, 22);
+            this.numericUDSandalo.Size = new System.Drawing.Size(56, 19);
             this.numericUDSandalo.TabIndex = 21;
             this.numericUDSandalo.ValueChanged += new System.EventHandler(this.numericUDSandalo_ValueChanged);
             // 
@@ -495,9 +515,10 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(239, 325);
+            this.label22.Location = new System.Drawing.Point(179, 264);
+            this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(39, 16);
+            this.label22.Size = new System.Drawing.Size(33, 13);
             this.label22.TabIndex = 20;
             this.label22.Text = "15ml";
             // 
@@ -505,9 +526,10 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(147, 325);
+            this.label23.Location = new System.Drawing.Point(110, 264);
+            this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(15, 16);
+            this.label23.Size = new System.Drawing.Size(14, 13);
             this.label23.TabIndex = 19;
             this.label23.Text = "7";
             // 
@@ -515,19 +537,20 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(35, 325);
+            this.label24.Location = new System.Drawing.Point(26, 264);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(15, 16);
+            this.label24.Size = new System.Drawing.Size(14, 13);
             this.label24.TabIndex = 18;
             this.label24.Text = "0";
             // 
             // trackBarSandalo
             // 
-            this.trackBarSandalo.Location = new System.Drawing.Point(25, 286);
-            this.trackBarSandalo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.trackBarSandalo.Location = new System.Drawing.Point(19, 232);
+            this.trackBarSandalo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.trackBarSandalo.Maximum = 15;
             this.trackBarSandalo.Name = "trackBarSandalo";
-            this.trackBarSandalo.Size = new System.Drawing.Size(261, 56);
+            this.trackBarSandalo.Size = new System.Drawing.Size(196, 45);
             this.trackBarSandalo.TabIndex = 23;
             this.trackBarSandalo.TickFrequency = 8;
             this.trackBarSandalo.Scroll += new System.EventHandler(this.trackBarSandalo_Scroll);
@@ -536,32 +559,34 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(21, 262);
+            this.label25.Location = new System.Drawing.Point(16, 213);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(140, 19);
+            this.label25.Size = new System.Drawing.Size(110, 16);
             this.label25.TabIndex = 17;
             this.label25.Text = "Esencia de Sándalo";
             // 
             // label13
             // 
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label13.Location = new System.Drawing.Point(17, 252);
+            this.label13.Location = new System.Drawing.Point(13, 205);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(369, 2);
+            this.label13.Size = new System.Drawing.Size(277, 2);
             this.label13.TabIndex = 15;
             // 
             // numericUDLavanda
             // 
             this.numericUDLavanda.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUDLavanda.Location = new System.Drawing.Point(288, 180);
-            this.numericUDLavanda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUDLavanda.Location = new System.Drawing.Point(216, 146);
+            this.numericUDLavanda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numericUDLavanda.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
             this.numericUDLavanda.Name = "numericUDLavanda";
-            this.numericUDLavanda.Size = new System.Drawing.Size(75, 22);
+            this.numericUDLavanda.Size = new System.Drawing.Size(56, 19);
             this.numericUDLavanda.TabIndex = 14;
             this.numericUDLavanda.ValueChanged += new System.EventHandler(this.numericUDLavanda_ValueChanged);
             // 
@@ -569,9 +594,10 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(235, 220);
+            this.label14.Location = new System.Drawing.Point(176, 179);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(39, 16);
+            this.label14.Size = new System.Drawing.Size(33, 13);
             this.label14.TabIndex = 13;
             this.label14.Text = "20ml";
             // 
@@ -579,9 +605,10 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(141, 220);
+            this.label15.Location = new System.Drawing.Point(106, 179);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(23, 16);
+            this.label15.Size = new System.Drawing.Size(21, 13);
             this.label15.TabIndex = 12;
             this.label15.Text = "10";
             // 
@@ -589,19 +616,20 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(31, 220);
+            this.label16.Location = new System.Drawing.Point(23, 179);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(15, 16);
+            this.label16.Size = new System.Drawing.Size(14, 13);
             this.label16.TabIndex = 11;
             this.label16.Text = "0";
             // 
             // trackBarLavanda
             // 
-            this.trackBarLavanda.Location = new System.Drawing.Point(21, 180);
-            this.trackBarLavanda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.trackBarLavanda.Location = new System.Drawing.Point(16, 146);
+            this.trackBarLavanda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.trackBarLavanda.Maximum = 20;
             this.trackBarLavanda.Name = "trackBarLavanda";
-            this.trackBarLavanda.Size = new System.Drawing.Size(261, 56);
+            this.trackBarLavanda.Size = new System.Drawing.Size(196, 45);
             this.trackBarLavanda.TabIndex = 16;
             this.trackBarLavanda.TickFrequency = 10;
             this.trackBarLavanda.Scroll += new System.EventHandler(this.trackBarLavanda_Scroll);
@@ -610,27 +638,29 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(17, 158);
+            this.label17.Location = new System.Drawing.Point(13, 128);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(143, 19);
+            this.label17.Size = new System.Drawing.Size(112, 16);
             this.label17.TabIndex = 10;
             this.label17.Text = "Esencia de Lavanda";
             // 
             // label12
             // 
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label12.Location = new System.Drawing.Point(21, 148);
+            this.label12.Location = new System.Drawing.Point(16, 120);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(369, 2);
+            this.label12.Size = new System.Drawing.Size(277, 2);
             this.label12.TabIndex = 8;
             // 
             // numericUDAlcohol
             // 
             this.numericUDAlcohol.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUDAlcohol.Location = new System.Drawing.Point(292, 76);
-            this.numericUDAlcohol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numericUDAlcohol.Location = new System.Drawing.Point(219, 62);
+            this.numericUDAlcohol.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numericUDAlcohol.Name = "numericUDAlcohol";
-            this.numericUDAlcohol.Size = new System.Drawing.Size(75, 22);
+            this.numericUDAlcohol.Size = new System.Drawing.Size(56, 19);
             this.numericUDAlcohol.TabIndex = 7;
             this.numericUDAlcohol.ValueChanged += new System.EventHandler(this.numericUDAlcohol_ValueChanged);
             // 
@@ -638,9 +668,10 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(239, 116);
+            this.label11.Location = new System.Drawing.Point(179, 94);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 16);
+            this.label11.Size = new System.Drawing.Size(40, 13);
             this.label11.TabIndex = 6;
             this.label11.Text = "100ml";
             // 
@@ -648,9 +679,10 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(147, 116);
+            this.label10.Location = new System.Drawing.Point(110, 94);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(23, 16);
+            this.label10.Size = new System.Drawing.Size(21, 13);
             this.label10.TabIndex = 5;
             this.label10.Text = "50";
             // 
@@ -658,19 +690,20 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(35, 116);
+            this.label9.Location = new System.Drawing.Point(26, 94);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 16);
+            this.label9.Size = new System.Drawing.Size(14, 13);
             this.label9.TabIndex = 4;
             this.label9.Text = "0";
             // 
             // trackBarAlcohol
             // 
-            this.trackBarAlcohol.Location = new System.Drawing.Point(25, 76);
-            this.trackBarAlcohol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.trackBarAlcohol.Location = new System.Drawing.Point(19, 62);
+            this.trackBarAlcohol.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.trackBarAlcohol.Maximum = 100;
             this.trackBarAlcohol.Name = "trackBarAlcohol";
-            this.trackBarAlcohol.Size = new System.Drawing.Size(261, 56);
+            this.trackBarAlcohol.Size = new System.Drawing.Size(196, 45);
             this.trackBarAlcohol.TabIndex = 9;
             this.trackBarAlcohol.TickFrequency = 50;
             this.trackBarAlcohol.Scroll += new System.EventHandler(this.trackBarAlcohol_Scroll);
@@ -679,9 +712,10 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(21, 53);
+            this.label8.Location = new System.Drawing.Point(16, 43);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 19);
+            this.label8.Size = new System.Drawing.Size(107, 16);
             this.label8.TabIndex = 2;
             this.label8.Text = "Alcohol Base (96º)";
             // 
@@ -689,9 +723,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 11);
+            this.label4.Location = new System.Drawing.Point(12, 9);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(336, 27);
+            this.label4.Size = new System.Drawing.Size(271, 22);
             this.label4.TabIndex = 1;
             this.label4.Text = "2. Composición de esencias (ml)";
             // 
@@ -701,20 +736,20 @@
             this.panelCliente.Controls.Add(this.lblEmail);
             this.panelCliente.Controls.Add(this.lblNombre);
             this.panelCliente.Controls.Add(this.label3);
-            this.panelCliente.Location = new System.Drawing.Point(37, 479);
-            this.panelCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelCliente.Location = new System.Drawing.Point(28, 389);
+            this.panelCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelCliente.Name = "panelCliente";
-            this.panelCliente.Size = new System.Drawing.Size(380, 122);
+            this.panelCliente.Size = new System.Drawing.Size(285, 99);
             this.panelCliente.TabIndex = 2;
             // 
             // lblEmail
             // 
             this.lblEmail.BackColor = System.Drawing.SystemColors.Window;
             this.lblEmail.ForeColor = System.Drawing.Color.Silver;
-            this.lblEmail.Location = new System.Drawing.Point(21, 79);
-            this.lblEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lblEmail.Location = new System.Drawing.Point(16, 64);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(332, 22);
+            this.lblEmail.Size = new System.Drawing.Size(250, 20);
             this.lblEmail.TabIndex = 40;
             this.lblEmail.Text = "Email";
             this.lblEmail.Enter += new System.EventHandler(this.lblEmail_Enter);
@@ -724,10 +759,10 @@
             // 
             this.lblNombre.BackColor = System.Drawing.SystemColors.Window;
             this.lblNombre.ForeColor = System.Drawing.Color.Silver;
-            this.lblNombre.Location = new System.Drawing.Point(21, 43);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lblNombre.Location = new System.Drawing.Point(16, 35);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(332, 22);
+            this.lblNombre.Size = new System.Drawing.Size(250, 20);
             this.lblNombre.TabIndex = 30;
             this.lblNombre.Text = "Nombre";
             this.lblNombre.Enter += new System.EventHandler(this.lblNombre_Enter);
@@ -737,9 +772,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 9);
+            this.label3.Location = new System.Drawing.Point(13, 7);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 27);
+            this.label3.Size = new System.Drawing.Size(66, 22);
             this.label3.TabIndex = 1;
             this.label3.Text = "Cliente";
             // 
@@ -748,20 +784,20 @@
             this.panelEnvase.BackColor = System.Drawing.Color.White;
             this.panelEnvase.Controls.Add(this.listViewEnvases);
             this.panelEnvase.Controls.Add(this.label2);
-            this.panelEnvase.Location = new System.Drawing.Point(37, 75);
-            this.panelEnvase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelEnvase.Location = new System.Drawing.Point(28, 61);
+            this.panelEnvase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelEnvase.Name = "panelEnvase";
-            this.panelEnvase.Size = new System.Drawing.Size(380, 385);
+            this.panelEnvase.Size = new System.Drawing.Size(285, 313);
             this.panelEnvase.TabIndex = 1;
             // 
             // listViewEnvases
             // 
             this.listViewEnvases.HideSelection = false;
             this.listViewEnvases.LargeImageList = this.imageListEnvases;
-            this.listViewEnvases.Location = new System.Drawing.Point(3, 41);
-            this.listViewEnvases.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listViewEnvases.Location = new System.Drawing.Point(2, 33);
+            this.listViewEnvases.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listViewEnvases.Name = "listViewEnvases";
-            this.listViewEnvases.Size = new System.Drawing.Size(373, 341);
+            this.listViewEnvases.Size = new System.Drawing.Size(281, 278);
             this.listViewEnvases.TabIndex = 1;
             this.listViewEnvases.UseCompatibleStateImageBehavior = false;
             this.listViewEnvases.SelectedIndexChanged += new System.EventHandler(this.cambioCapacidad);
@@ -785,9 +821,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 11);
+            this.label2.Location = new System.Drawing.Point(13, 9);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(227, 27);
+            this.label2.Size = new System.Drawing.Size(180, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "1. Seleccionar envase";
             // 
@@ -796,20 +833,18 @@
             this.pnlSideBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pnlSideBar.Controls.Add(this.btnHome);
             this.pnlSideBar.Controls.Add(this.btnHistorial);
-            this.pnlSideBar.Location = new System.Drawing.Point(0, 42);
-            this.pnlSideBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSideBar.Location = new System.Drawing.Point(0, 34);
             this.pnlSideBar.Name = "pnlSideBar";
-            this.pnlSideBar.Size = new System.Drawing.Size(137, 602);
+            this.pnlSideBar.Size = new System.Drawing.Size(103, 489);
             this.pnlSideBar.TabIndex = 3;
             // 
             // btnHome
             // 
             this.btnHome.BackgroundImage = global::PF26_48848727Q_24470742F_77658838M_54800134N.Properties.Resources.btnHome;
             this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnHome.Location = new System.Drawing.Point(5, 5);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Location = new System.Drawing.Point(4, 4);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(127, 87);
+            this.btnHome.Size = new System.Drawing.Size(95, 71);
             this.btnHome.TabIndex = 3;
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
@@ -818,10 +853,10 @@
             // 
             this.btnHistorial.BackgroundImage = global::PF26_48848727Q_24470742F_77658838M_54800134N.Properties.Resources.btnHistorial;
             this.btnHistorial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnHistorial.Location = new System.Drawing.Point(5, 97);
-            this.btnHistorial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnHistorial.Location = new System.Drawing.Point(4, 79);
+            this.btnHistorial.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnHistorial.Name = "btnHistorial";
-            this.btnHistorial.Size = new System.Drawing.Size(127, 87);
+            this.btnHistorial.Size = new System.Drawing.Size(95, 71);
             this.btnHistorial.TabIndex = 2;
             this.btnHistorial.UseVisualStyleBackColor = true;
             this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
@@ -830,36 +865,34 @@
             // 
             this.pnlContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.pnlContenedor.Controls.Add(this.pnlInicio);
-            this.pnlContenedor.Location = new System.Drawing.Point(136, 42);
-            this.pnlContenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlContenedor.Location = new System.Drawing.Point(102, 34);
             this.pnlContenedor.Name = "pnlContenedor";
-            this.pnlContenedor.Size = new System.Drawing.Size(1136, 617);
+            this.pnlContenedor.Size = new System.Drawing.Size(852, 501);
             this.pnlContenedor.TabIndex = 7;
             // 
             // circularProgresBar
             // 
             this.circularProgresBar.BaseColor = System.Drawing.Color.LightGray;
             this.circularProgresBar.LineWidth = 10;
-            this.circularProgresBar.Location = new System.Drawing.Point(59, 43);
-            this.circularProgresBar.Margin = new System.Windows.Forms.Padding(4);
+            this.circularProgresBar.Location = new System.Drawing.Point(44, 35);
             this.circularProgresBar.Maximum = 100;
             this.circularProgresBar.Name = "circularProgresBar";
             this.circularProgresBar.ProgressColor = System.Drawing.Color.DodgerBlue;
-            this.circularProgresBar.Size = new System.Drawing.Size(133, 110);
+            this.circularProgresBar.Size = new System.Drawing.Size(100, 89);
             this.circularProgresBar.TabIndex = 4;
             this.circularProgresBar.Text = "circularProgresBar1";
             this.circularProgresBar.Value = 0;
             // 
             // FormLaboratorio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(222)))), ((int)(((byte)(204)))));
-            this.ClientSize = new System.Drawing.Size(1261, 673);
+            this.ClientSize = new System.Drawing.Size(946, 547);
             this.Controls.Add(this.pnlSideBar);
             this.Controls.Add(this.pnlContenedor);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormLaboratorio";
             this.Text = "Laboratorio";
             this.pnlInicio.ResumeLayout(false);

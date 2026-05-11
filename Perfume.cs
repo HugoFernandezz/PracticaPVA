@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PF26_48848727Q_24470742F_77658838M_54800134N
 {
-    internal class Perfume
+    public class Perfume
     {
         private Envase envase;
 
