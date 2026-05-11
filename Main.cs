@@ -23,6 +23,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
     {
         List<Envase> listaEnvases = new List<Envase>();
         List<Perfume> listaPerfumes = new List<Perfume>();
+        private Form formActivo = null;
 
         float precioAlcohol;
         float precioLavanda;
@@ -196,6 +197,28 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                 }
             }
         }
+
+        private void AbrirFormHijo(Form formHijo)
+        {
+            using (LoginAdmin login = new LoginAdmin())
+            {
+                
+                if (login.ShowDialog() == DialogResult.OK)
+                {
+                    if (formActivo != null) formActivo.Close();
+
+                    pnlInicio.Visible = false;
+                    formActivo = formHijo;
+                    formHijo.TopLevel = false;
+                    formHijo.FormBorderStyle = FormBorderStyle.None;
+                    formHijo.Dock = DockStyle.Fill;
+
+                    pnlContenedor.Controls.Add(formHijo);
+                    formHijo.BringToFront();
+                    formHijo.Show();
+                }
+            }
+        } 
 
         private void trackBarAlcohol_Scroll(object sender, EventArgs e)
         {
@@ -652,31 +675,21 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-            
+            AbrirFormHijo(new Historial());
+        }
 
-                btnHistorial.Enabled = true;
-                SaveFileDialog save = new SaveFileDialog { Filter = "Archivo Excel CSV (*.csv)|*.csv", FileName = "Perfumes.csv" };
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            if (formActivo != null)
+            {
+                formActivo.Close();
+                formActivo = null;
+            }
+            //Hacemos visible el form del inicio
+            pnlInicio.Visible = true;
 
-                if (save.ShowDialog() == DialogResult.OK)
-                {
-                    using (StreamWriter sw = new StreamWriter(save.FileName, false, System.Text.Encoding.UTF8))
-                    {
-
-                        sw.WriteLine("Cliente;Email;Envase;Alcohol;Bergamota;Lavanda;Sandalo;Total");
-
-                        // 2. Escribimos los datos de cada perfume
-                        foreach (Perfume p in listaPerfumes)
-                        {
-                            string envase = p.Envase.Nombre;
-
-                            sw.WriteLine($"{p.NombreCliente};{p.EmailCliente};{envase};{p.Alcohol};{p.Bergamota};{p.Lavanda};{p.Sandalo};{p.Precio}€");
-                        }
-                    }
-                    MessageBox.Show("Exportado con éxito.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-            
-                
+            //Lo traemos al frente por si acaso
+            pnlInicio.BringToFront();
         }
     }
 }
