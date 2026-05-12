@@ -32,6 +32,7 @@
             this.btnEliminarRegistro = new System.Windows.Forms.Button();
             this.btnModificarRegistro = new System.Windows.Forms.Button();
             this.btnExportarTodo = new System.Windows.Forms.Button();
+            this.btnDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,17 +41,20 @@
             this.dgvHistorial.AllowUserToAddRows = false;
             this.dgvHistorial.AllowUserToDeleteRows = false;
             this.dgvHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHistorial.Location = new System.Drawing.Point(37, 75);
+            this.dgvHistorial.Location = new System.Drawing.Point(49, 92);
+            this.dgvHistorial.Margin = new System.Windows.Forms.Padding(4);
             this.dgvHistorial.Name = "dgvHistorial";
+            this.dgvHistorial.ReadOnly = true;
             this.dgvHistorial.RowHeadersWidth = 51;
-            this.dgvHistorial.Size = new System.Drawing.Size(765, 374);
+            this.dgvHistorial.Size = new System.Drawing.Size(1020, 460);
             this.dgvHistorial.TabIndex = 0;
             // 
             // btnEliminarRegistro
             // 
-            this.btnEliminarRegistro.Location = new System.Drawing.Point(341, 30);
+            this.btnEliminarRegistro.Location = new System.Drawing.Point(455, 37);
+            this.btnEliminarRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarRegistro.Name = "btnEliminarRegistro";
-            this.btnEliminarRegistro.Size = new System.Drawing.Size(131, 23);
+            this.btnEliminarRegistro.Size = new System.Drawing.Size(175, 28);
             this.btnEliminarRegistro.TabIndex = 1;
             this.btnEliminarRegistro.Text = "Eliminar registro";
             this.btnEliminarRegistro.UseVisualStyleBackColor = true;
@@ -58,9 +62,10 @@
             // 
             // btnModificarRegistro
             // 
-            this.btnModificarRegistro.Location = new System.Drawing.Point(519, 30);
+            this.btnModificarRegistro.Location = new System.Drawing.Point(692, 37);
+            this.btnModificarRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificarRegistro.Name = "btnModificarRegistro";
-            this.btnModificarRegistro.Size = new System.Drawing.Size(115, 23);
+            this.btnModificarRegistro.Size = new System.Drawing.Size(153, 28);
             this.btnModificarRegistro.TabIndex = 2;
             this.btnModificarRegistro.Text = "Modificar registro";
             this.btnModificarRegistro.UseVisualStyleBackColor = true;
@@ -68,23 +73,37 @@
             // 
             // btnExportarTodo
             // 
-            this.btnExportarTodo.Location = new System.Drawing.Point(678, 29);
+            this.btnExportarTodo.Location = new System.Drawing.Point(904, 36);
+            this.btnExportarTodo.Margin = new System.Windows.Forms.Padding(4);
             this.btnExportarTodo.Name = "btnExportarTodo";
-            this.btnExportarTodo.Size = new System.Drawing.Size(110, 23);
+            this.btnExportarTodo.Size = new System.Drawing.Size(147, 28);
             this.btnExportarTodo.TabIndex = 3;
             this.btnExportarTodo.Text = "Exportar todo";
             this.btnExportarTodo.UseVisualStyleBackColor = true;
             this.btnExportarTodo.Click += new System.EventHandler(this.btnExportarTodo_Click);
             // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Location = new System.Drawing.Point(228, 37);
+            this.btnDetalle.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(120, 28);
+            this.btnDetalle.TabIndex = 4;
+            this.btnDetalle.Text = "Ver detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
+            // 
             // Historial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnExportarTodo);
             this.Controls.Add(this.btnModificarRegistro);
             this.Controls.Add(this.btnEliminarRegistro);
             this.Controls.Add(this.dgvHistorial);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Historial";
             this.Text = "Historial";
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).EndInit();
@@ -98,5 +117,6 @@
         private System.Windows.Forms.Button btnEliminarRegistro;
         private System.Windows.Forms.Button btnModificarRegistro;
         private System.Windows.Forms.Button btnExportarTodo;
+        private System.Windows.Forms.Button btnDetalle;
     }
 }

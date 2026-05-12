@@ -73,6 +73,22 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             exportarTodoForm.ShowDialog();
         }
 
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (dgvHistorial.CurrentRow != null)
+            {
+                int idPerfume = Convert.ToInt32(dgvHistorial.CurrentRow.Cells["Id"].Value);
+                using (FormDetallePedido formDetalle = new FormDetallePedido(idPerfume))
+                {
+                    formDetalle.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un pedido de la lista para ver sus detalles.", "Selección necesaria", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void btnEliminarRegistro_Click(object sender, EventArgs e)
         {
             //Veriricar que el usuario tenga alguna fila seleccionada

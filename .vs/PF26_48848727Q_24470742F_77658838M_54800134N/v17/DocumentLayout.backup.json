@@ -1,14 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\",
+  "WorkspaceRootPath": "C:\\Users\\hugaz\\source\\repos\\PF26_48848727Q_24470742F_77658838M_54800134N\\PF26_48848727Q_24470742F_77658838M_54800134N\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\hugaz\\documents\\practicapva\\historial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:historial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\hugaz\\source\\repos\\pf26_48848727q_24470742f_77658838m_54800134n\\pf26_48848727q_24470742f_77658838m_54800134n\\formdetallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:formdetallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\hugaz\\documents\\practicapva\\historial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:historial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\hugaz\\source\\repos\\pf26_48848727q_24470742f_77658838m_54800134n\\pf26_48848727q_24470742f_77658838m_54800134n\\formdetallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:formdetallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|C:\\Users\\hugaz\\source\\repos\\PF26_48848727Q_24470742F_77658838M_54800134N\\PF26_48848727Q_24470742F_77658838M_54800134N\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +22,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Historial.cs",
-              "DocumentMoniker": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Historial.cs",
-              "RelativeDocumentMoniker": "Historial.cs",
-              "ToolTip": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Historial.cs",
-              "RelativeToolTip": "Historial.cs",
-              "ViewState": "AgIAAMIAAAAAAAAAAAAAACQAAABGAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Main.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hugaz\\source\\repos\\PF26_48848727Q_24470742F_77658838M_54800134N\\PF26_48848727Q_24470742F_77658838M_54800134N\\Main.cs",
+              "RelativeDocumentMoniker": "Main.cs",
+              "ToolTip": "C:\\Users\\hugaz\\source\\repos\\PF26_48848727Q_24470742F_77658838M_54800134N\\PF26_48848727Q_24470742F_77658838M_54800134N\\Main.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Main.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T18:23:49.365Z",
+              "WhenOpened": "2026-05-12T07:40:10.621Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormDetallePedido.cs",
+              "DocumentMoniker": "C:\\Users\\hugaz\\source\\repos\\PF26_48848727Q_24470742F_77658838M_54800134N\\PF26_48848727Q_24470742F_77658838M_54800134N\\FormDetallePedido.cs",
+              "RelativeDocumentMoniker": "FormDetallePedido.cs",
+              "ToolTip": "C:\\Users\\hugaz\\source\\repos\\PF26_48848727Q_24470742F_77658838M_54800134N\\PF26_48848727Q_24470742F_77658838M_54800134N\\FormDetallePedido.cs",
+              "RelativeToolTip": "FormDetallePedido.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T14:09:14.649Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Historial.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Historial.cs",
-              "RelativeDocumentMoniker": "Historial.cs",
-              "ToolTip": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Historial.cs [Design]",
-              "RelativeToolTip": "Historial.cs [Design]",
+              "Title": "FormDetallePedido.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\hugaz\\source\\repos\\PF26_48848727Q_24470742F_77658838M_54800134N\\PF26_48848727Q_24470742F_77658838M_54800134N\\FormDetallePedido.cs",
+              "RelativeDocumentMoniker": "FormDetallePedido.cs",
+              "ToolTip": "C:\\Users\\hugaz\\source\\repos\\PF26_48848727Q_24470742F_77658838M_54800134N\\PF26_48848727Q_24470742F_77658838M_54800134N\\FormDetallePedido.cs [Dise\u00F1o]",
+              "RelativeToolTip": "FormDetallePedido.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-11T18:20:34.268Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-05-12T14:09:08.791Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
