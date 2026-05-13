@@ -159,44 +159,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CircularProgresBar.cs">
+    <Compile Include="Controls\CircularProgresBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Envase.cs" />
-    <Compile Include="Exportar.cs">
+    <Compile Include="Database\DatabaseService.cs" />
+    <Compile Include="Models\Envase.cs" />
+    <Compile Include="Models\Perfume.cs" />
+    <Compile Include="Forms\Exportar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Exportar.Designer.cs">
+    <Compile Include="Forms\Exportar.Designer.cs">
       <DependentUpon>Exportar.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExportarTodo.cs">
+    <Compile Include="Forms\ExportarTodo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExportarTodo.Designer.cs">
+    <Compile Include="Forms\ExportarTodo.Designer.cs">
       <DependentUpon>ExportarTodo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDetallePedido.cs">
+    <Compile Include="Forms\FormDetallePedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetallePedido.Designer.cs">
+    <Compile Include="Forms\FormDetallePedido.Designer.cs">
       <DependentUpon>FormDetallePedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEditarCampo.cs">
+    <Compile Include="Forms\FormEditarCampo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEditarCampo.Designer.cs">
+    <Compile Include="Forms\FormEditarCampo.Designer.cs">
       <DependentUpon>FormEditarCampo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Historial.cs">
+    <Compile Include="Forms\Historial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Historial.Designer.cs">
+    <Compile Include="Forms\Historial.Designer.cs">
       <DependentUpon>Historial.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginAdmin.cs">
+    <Compile Include="Forms\LoginAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginAdmin.Designer.cs">
+    <Compile Include="Forms\LoginAdmin.Designer.cs">
       <DependentUpon>LoginAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
@@ -205,25 +207,24 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Perfume.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Exportar.resx">
+    <EmbeddedResource Include="Forms\Exportar.resx">
       <DependentUpon>Exportar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExportarTodo.resx">
+    <EmbeddedResource Include="Forms\ExportarTodo.resx">
       <DependentUpon>ExportarTodo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetallePedido.resx">
+    <EmbeddedResource Include="Forms\FormDetallePedido.resx">
       <DependentUpon>FormDetallePedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEditarCampo.resx">
+    <EmbeddedResource Include="Forms\FormEditarCampo.resx">
       <DependentUpon>FormEditarCampo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Historial.resx">
+    <EmbeddedResource Include="Forms\Historial.resx">
       <DependentUpon>Historial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginAdmin.resx">
+    <EmbeddedResource Include="Forms\LoginAdmin.resx">
       <DependentUpon>LoginAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
@@ -269,7 +270,7 @@
     <None Include="media\btnHistorial.png" />
     <None Include="media\btnHome.png" />
     <None Include="media\adminPass.png" />
-    <Content Include="tablasYdatos.sql">
+    <Content Include="Database\tablasYdatos.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

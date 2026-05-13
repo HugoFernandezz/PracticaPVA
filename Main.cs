@@ -31,13 +31,11 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         float precioSandalo;
         float precioBergamota;
 
-        // Esta es la ruta a tu archivo local
-        string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=LaboratorioBD;Integrated Security=True;TrustServerCertificate=True;"; 
         public FormLaboratorio()
         {
             InitializeComponent();
 
-            InicializarBaseDeDatosCompleta();
+            DatabaseService.InicializarBaseDeDatosCompleta();
 
 
             //Esto sirve para que el circulo que indica el progreso se vuelva verde
@@ -58,145 +56,29 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             
         }
 
-        private bool TieneDatos(SqlConnection conexion, string nombreTabla)
-        {
-            string query = $"SELECT COUNT(*) FROM {nombreTabla}";
-            try
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conexion))
-                {
-                    int count = (int)cmd.ExecuteScalar();
-                    return count > 0;
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private bool ExisteTabla(SqlConnection conexion, string nombreTabla)
-        {
-            // Esta consulta busca en las tablas del sistema de SQL Server
-            string checkQuery = "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = @NombreTabla";
-
-            using (SqlCommand checkCmd = new SqlCommand(checkQuery, conexion))
-            {
-                // Usamos parámetros por seguridad
-                checkCmd.Parameters.AddWithValue("@NombreTabla", nombreTabla);
-
-                // Ejecutamos y convertimos el resultado a número
-                int tableCount = (int)checkCmd.ExecuteScalar();
-
-                // Si el conteo es mayor a 0, la tabla existe
-                return tableCount > 0;
-            }
-        }
-
-        private void InicializarBaseDeDatosCompleta()
-        {
-            // Conectamos primero a master para asegurar que la base de datos existe
-            string connectionMaster = @"Server=.\SQLEXPRESS; Database=master; Integrated Security=True; TrustServerCertificate=True;";
-            string connectionDb = @"Server=.\SQLEXPRESS; Database=LaboratorioBD; Integrated Security=True; TrustServerCertificate=True;";
-
-            // Buscamos el archivo SQL
-            string rutaArchivoSql = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "tablasYdatos.sql");
-
-            try
-            {
-                // 1. Crear la base de datos si no existe
-                using (SqlConnection conexionMaster = new SqlConnection(connectionMaster))
-                {
-                    conexionMaster.Open();
-                    string queryCreateDB = "IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'LaboratorioBD') CREATE DATABASE LaboratorioBD;";
-                    using (SqlCommand cmd = new SqlCommand(queryCreateDB, conexionMaster))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
-                // 2. Conectar a LaboratorioBD para verificar tablas e insertar datos
-                using (SqlConnection conexion = new SqlConnection(connectionDb))
-                {
-                    conexion.Open();
-
-                    // Comprobamos si falta la tabla de MateriasPrimas o si está vacía.
-                    if (!ExisteTabla(conexion, "MateriasPrimas") || !TieneDatos(conexion, "MateriasPrimas"))
-                    {
-                        if (!File.Exists(rutaArchivoSql))
-                        {
-                            MessageBox.Show("No se encontró el archivo de configuración: " + rutaArchivoSql +
-                                "\n\nRecuerda marcar el archivo .sql en Visual Studio como 'Copiar si es posterior'.",
-                                "Archivo no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-
-                        // Leemos con Unicode (UTF-16) porque el archivo tiene BOM FF-FE de SQL Server
-                        string scriptCompleto = File.ReadAllText(rutaArchivoSql, Encoding.Unicode);
-
-                        // Cortamos el script por los "GO"
-                        string[] comandos = Regex.Split(scriptCompleto, @"^\s*GO\s*$", RegexOptions.Multiline | RegexOptions.IgnoreCase);
-
-                        foreach (string comando in comandos)
-                        {
-                            if (!string.IsNullOrWhiteSpace(comando))
-                            {
-                                using (SqlCommand cmd = new SqlCommand(comando, conexion))
-                                {
-                                    cmd.ExecuteNonQuery();
-                                }
-                            }
-                        }
-
-                        MessageBox.Show("¡Base de datos y tablas configuradas automáticamente!",
-                            "Sincronización Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al inicializar la base de datos: " + ex.Message, "Error de SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         private void CargarEnvases()
         {
             //listViewEnvases.Items.Clear();
 
-            using (SqlConnection conexion = new SqlConnection(connectionString))
+            List<Envase> envases = DatabaseService.CargarEnvases();
+            int i = 0; // Para los iconos
+
+            foreach (Envase envase in envases)
             {
-                // Consulta para traer los datos
-                string query = "SELECT Id, Nombre, CapacidadMl, Precio FROM Envases";
-                SqlCommand comando = new SqlCommand(query, conexion);
+                // Formateamos el texto como lo tenías antes
+                ListViewItem item = new ListViewItem($"{envase.CapacidadMl}mL {envase.Nombre}\n{envase.Precio:N2}€", i);
 
-                try
-                {
-                    conexion.Open();
-                    SqlDataReader reader = comando.ExecuteReader();
-                    int i = 0; // Para los iconos
+                // IMPORTANTE: Guardamos el objeto en el Tag para que los límites sigan funcionando
+                item.Tag = envase;
 
-                    while (reader.Read())
-                    {
-                        int id = (int)reader["Id"];
-                        string nombre = reader["Nombre"].ToString();
-                        int capacidad = (int)reader["CapacidadMl"];
-                        decimal precio = (decimal)reader["Precio"];
-
-                        // Formateamos el texto como lo tenías antes
-                        ListViewItem item = new ListViewItem($"{capacidad}mL {nombre}\n{precio:N2}€", i);
-
-                        // IMPORTANTE: Guardamos el objeto en el Tag para que los límites sigan funcionando
-                        item.Tag = new Envase { Id = id, Nombre = nombre, CapacidadMl = capacidad, Precio = precio };
-
-                        listViewEnvases.Items.Add(item);
-                        i++;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al conectar: " + ex.Message);
-                }
+                listViewEnvases.Items.Add(item);
+                i++;
             }
+        }
+
+        private void CargarPreciosBaseDeDatos()
+        {
+            DatabaseService.CargarPreciosBaseDeDatos(out precioAlcohol, out precioLavanda, out precioSandalo, out precioBergamota);
         }
 
         private void AbrirFormHijo(Form formHijo)
@@ -399,10 +281,6 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             }
 
             //Preparo los datos como hicimos en el metodo anterior
-            float alcohol = float.Parse(lblCAlcohol.Text.Replace("€", ""));
-            float bergamota = float.Parse(lblCBergamota.Text.Replace("€", ""));
-            float lavanda = float.Parse(lblCLavanda.Text.Replace("€", ""));
-            float sandalo = float.Parse(lblCSandalo.Text.Replace("€", ""));
             decimal total = decimal.Parse(lblCTotal.Text.Replace("€", ""));
 
             //Recogemos los datos de los labels
@@ -412,49 +290,25 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             //Recuperamos el objeto envase
             Envase envase = (Envase)listViewEnvases.SelectedItems[0].Tag;
 
-
-            //Conectamos con ls BD e insertamos
-            using (SqlConnection conexion = new SqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    conexion.Open();
-                    //INSERT para el Perfume
-                    //Usamos OUTPUT INSERTED.Id para obtener el ID que nos asigne la base de datos automáticamente
-                    string queryPerfume = "INSERT INTO Perfumes (NombreCliente, EmailCliente, EnvaseId, PrecioTotal) " +
-                                          "OUTPUT INSERTED.Id " +
-                                          "VALUES (@nom, @em, @envId, @total)";
+                //Conectamos con la BD e insertamos
+                DatabaseService.GuardarPedido(nombre, email, envase, total,
+                    (int)numericUDAlcohol.Value, (int)numericUDLavanda.Value,
+                    (int)numericUDSandalo.Value, (int)numericUDBergamota.Value);
 
-                    SqlCommand cmd = new SqlCommand(queryPerfume, conexion);
-
-                    cmd.Parameters.AddWithValue("@nom", nombre);
-                    cmd.Parameters.AddWithValue("@em", email);
-                    cmd.Parameters.AddWithValue("@envId", envase.Id);
-                    cmd.Parameters.AddWithValue("@total", total);
-
-                    //Ejecutamos y guardamos el ID generado
-                    int idGenerado = (int)cmd.ExecuteScalar();
-
-                    //Hacemos un INSERT por cada ingrediente que tenga cantidad > 0
-                    GuardarDetalle(idGenerado, 1, (int)numericUDAlcohol.Value, conexion);
-                    GuardarDetalle(idGenerado, 2, (int)numericUDLavanda.Value, conexion);
-                    GuardarDetalle(idGenerado, 3, (int)numericUDSandalo.Value, conexion);
-                    GuardarDetalle(idGenerado, 4, (int)numericUDBergamota.Value, conexion);
-
-                    //Insertamos en la lista de perfumes el perfume y habilitamos la opcion de exportar
-                    perfume = new Perfume(envase, (float)numericUDAlcohol.Value, (float)numericUDLavanda.Value, (float)numericUDSandalo.Value, (float)numericUDBergamota.Value);
-                    btnExportar.Enabled = true;
-                    btnHistorial.Enabled = true;
-                    btnExportar.BackColor = Color.DarkGreen;
-                    MessageBox.Show("Pedido guardado con éxito en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    limpiarForm();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al guardar: " + ex.Message);
-                }
+                //Insertamos en la lista de perfumes el perfume y habilitamos la opcion de exportar
+                perfume = new Perfume(envase, (float)numericUDAlcohol.Value, (float)numericUDLavanda.Value, (float)numericUDSandalo.Value, (float)numericUDBergamota.Value);
+                btnExportar.Enabled = true;
+                btnHistorial.Enabled = true;
+                btnExportar.BackColor = Color.DarkGreen;
+                MessageBox.Show("Pedido guardado con éxito en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpiarForm();
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar: " + ex.Message);
+            }
         }
 
         private bool comprobarCampos()
@@ -483,45 +337,6 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
 
             return true;
-        }
-
-        private void GuardarDetalle(int perfumeId, int esenciaId, int cantidad, SqlConnection conexion)
-        {
-            if (cantidad <= 0) return; // Si no hay cantidad, no guardamos fila
-            string query = "INSERT INTO DetallePerfumes (PerfumeId, EsenciaId, CantidadMl) VALUES (@pId, @eId, @cant)";
-            SqlCommand cmd = new SqlCommand(query, conexion);
-            cmd.Parameters.AddWithValue("@pId", perfumeId);
-            cmd.Parameters.AddWithValue("@eId", esenciaId);
-            cmd.Parameters.AddWithValue("@cant", cantidad);
-            cmd.ExecuteNonQuery();
-        }
-
-        //Cargamos los precios de las esencias desde la base de datos
-        private void CargarPreciosBaseDeDatos()
-        {
-            using (SqlConnection conexion = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    conexion.Open();
-                    string query = "SELECT Nombre, PrecioPorMl FROM MateriasPrimas";
-                    SqlCommand cmd = new SqlCommand(query, conexion);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        string nombre = reader["Nombre"].ToString().ToLower();
-                        float precio = Convert.ToSingle(reader["PrecioPorMl"]);
-                        if (nombre.Contains("alcohol")) precioAlcohol = precio;
-                        else if (nombre.Contains("lavanda")) precioLavanda = precio;
-                        else if (nombre.Contains("sandalo")) precioSandalo = precio;
-                        else if (nombre.Contains("bergamota")) precioBergamota = precio;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("No se pudieron cargar los precios: " + ex.Message);
-                }
-            }
         }
 
         private void lblNombre_Enter(object sender, EventArgs e)
