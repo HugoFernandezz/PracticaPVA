@@ -17,6 +17,9 @@ using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 
+using System.Net;
+using System.Net.Mail;
+
 namespace PF26_48848727Q_24470742F_77658838M_54800134N
 {
     public partial class FormLaboratorio : Form
@@ -314,12 +317,16 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                 btnHistorial.Enabled = true;
                 btnExportar.BackColor = Color.DarkGreen;
                 MessageBox.Show("Pedido guardado con éxito en la base de datos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                EnviarCorreoConfirmacion(lblEmail.Text, lblNombre.Text, envase.Nombre, envase.CapacidadMl, (int)numericUDAlcohol.Value, (int)numericUDLavanda.Value, (int)numericUDSandalo.Value, (int)numericUDSandalo.Value, total);
+
                 limpiarForm();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar: " + ex.Message);
             }
+
         }
 
         private bool comprobarCampos()
@@ -344,8 +351,13 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             {
                 MessageBox.Show("Por favor, seleccione el envase que quiera para su perfume.", "Envase no seleccionado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
-            } 
+            }
 
+            if (!lblEmail.Text.Contains("@"))
+            {
+                MessageBox.Show("Por favor, introduce un correo electrónico válido que contenga el símbolo '@'.", "Email inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
             return true;
         }
@@ -419,6 +431,35 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             pnlInicio.BringToFront();
         }
 
-        
+        private void EnviarCorreoConfirmacion(string emailDestino, string nombreCliente, string nombreEnvase, int capacidad, int alc, int lav, int san, int ber, decimal precio)
+        {
+            try
+            {
+                MailMessage mensaje = new MailMessage();
+                // El correo de origen puede ser inventado, Mailtrap lo acepta igual
+                mensaje.From = new MailAddress("no-reply@laboratorioperfumes.com", "Laboratorio de Perfumes");
+                mensaje.To.Add(emailDestino);
+                mensaje.Subject = "Resumen de tu fragancia personalizada";
+
+                mensaje.Body = $"Hola {nombreCliente}, \n\n" + $"¡Tu perfume ya está en el laboratorio! Aquí tienes en detalle tu creación: \n\n" +
+                                $"--- ENVASE SELECCIONADO ---\n" + $"- Modelo: {nombreEnvase}\n" + $"- Capacidad: {capacidad} mL\n\n" +
+                                $"--- COMPOSICIÖN DE LA MEZCLA ---\n" + $"- Alcohol Base: {alc} mL\n" + $"- Esencia de Lavanda: {lav} mL\n" +
+                                $"- Esencia de Sándalo: {san} mL\n" + $"- Esencia de Bergamota: {ber} mL\n\n" + $"----------------------------\n\n" + $"--- PRECIO TOTAL: {precio}---\n\n"
+                                + $"¡Gracias por confiar en nuestro laboratorio! :)";
+                
+
+                SmtpClient smtp = new SmtpClient("sandbox.smtp.mailtrap.io");
+                smtp.Port = 2525; // Usamos el puerto 2525 que te indica Mailtrap
+
+                smtp.Credentials = new NetworkCredential("13f6e6c0c01aea", "1231f69595877a");
+                smtp.EnableSsl = true;
+
+                smtp.Send(mensaje);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El pedido se guardó, pero hubo un error al simular el email: " + ex.Message, "Aviso Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
