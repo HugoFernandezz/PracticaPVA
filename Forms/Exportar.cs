@@ -38,7 +38,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
         private void ExportarPDF()
         {
 
-            // 2. Configurar el diálogo de guardado
+            //Configuramos el diálogo de guardado
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Archivos PDF (*.pdf)|*.pdf";
             sfd.FileName = "Resumen_Pedido.pdf";

@@ -18,15 +18,6 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             this.AcceptButton = btnAceptar;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoginAdmin_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {

@@ -44,7 +44,6 @@
             this.label1.Size = new System.Drawing.Size(360, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ingrese la contraseña de Administrador";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtPassword
             // 
@@ -85,7 +84,6 @@
             this.Controls.Add(this.label1);
             this.Name = "LoginAdmin";
             this.Text = "LoginAdmin";
-            this.Load += new System.EventHandler(this.LoginAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
