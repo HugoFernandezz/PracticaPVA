@@ -1,10 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\",
+  "WorkspaceRootPath": "C:\\Users\\natal\\PracticaPVA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\hugaz\\documents\\practicapva\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\forms\\exportartodo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:forms\\exportartodo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\forms\\exportar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:forms\\exportar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\forms\\formdetallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:forms\\formdetallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\forms\\formeditarcampo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:forms\\formeditarcampo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\forms\\historial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:forms\\historial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\forms\\loginadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:forms\\loginadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|c:\\users\\natal\\practicapva\\forms\\formdetallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56578CB6-47F6-4A9E-AFF5-36362C197E64}|PF26_48848727Q_24470742F_77658838M_54800134N.csproj|solutionrelative:forms\\formdetallepedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +51,118 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Main.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Main.cs",
+              "Title": "Main.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Main.cs",
               "RelativeDocumentMoniker": "Main.cs",
-              "ToolTip": "C:\\Users\\hugaz\\Documents\\PracticaPVA\\Main.cs [Design]",
-              "RelativeToolTip": "Main.cs [Design]",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Main.cs",
+              "RelativeToolTip": "Main.cs",
+              "ViewState": "AgIAAAcBAAAAAAAAAAAmwBABAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T09:16:26.726Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Main.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Main.cs",
+              "RelativeDocumentMoniker": "Main.cs",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Main.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Main.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-12T07:40:10.621Z",
-              "EditorCaption": " [Design]"
+              "IsPinned": true,
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormEditarCampo.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Forms\\FormEditarCampo.cs",
+              "RelativeDocumentMoniker": "Forms\\FormEditarCampo.cs",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Forms\\FormEditarCampo.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\FormEditarCampo.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T08:47:28.151Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormDetallePedido.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Forms\\FormDetallePedido.cs",
+              "RelativeDocumentMoniker": "Forms\\FormDetallePedido.cs",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Forms\\FormDetallePedido.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\FormDetallePedido.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T08:47:27.616Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ExportarTodo.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Forms\\ExportarTodo.cs",
+              "RelativeDocumentMoniker": "Forms\\ExportarTodo.cs",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Forms\\ExportarTodo.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\ExportarTodo.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T08:47:26.647Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Historial.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Forms\\Historial.cs",
+              "RelativeDocumentMoniker": "Forms\\Historial.cs",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Forms\\Historial.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\Historial.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T08:47:29.127Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LoginAdmin.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Forms\\LoginAdmin.cs",
+              "RelativeDocumentMoniker": "Forms\\LoginAdmin.cs",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Forms\\LoginAdmin.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\LoginAdmin.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T08:47:30.031Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FormDetallePedido.cs",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Forms\\FormDetallePedido.cs",
+              "RelativeDocumentMoniker": "Forms\\FormDetallePedido.cs",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Forms\\FormDetallePedido.cs",
+              "RelativeToolTip": "Forms\\FormDetallePedido.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwDcAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T08:48:43.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Exportar.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\natal\\PracticaPVA\\Forms\\Exportar.cs",
+              "RelativeDocumentMoniker": "Forms\\Exportar.cs",
+              "ToolTip": "C:\\Users\\natal\\PracticaPVA\\Forms\\Exportar.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Forms\\Exportar.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T08:47:25.856Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

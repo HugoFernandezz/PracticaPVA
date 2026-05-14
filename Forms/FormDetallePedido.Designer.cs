@@ -53,7 +53,7 @@
             this.tableLayoutPanel.Padding = new System.Windows.Forms.Padding(5);
             this.tableLayoutPanel.RowCount = 1;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 107F));
             this.tableLayoutPanel.Size = new System.Drawing.Size(297, 118);
             this.tableLayoutPanel.TabIndex = 1;
             // 

@@ -50,7 +50,11 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                             lblMail.Text = "Email: " + reader["EmailCliente"].ToString();
                             lblEnvase.Text = "Envase: " + reader["EnvaseNombre"].ToString();
                             lblCapacidad.Text = "Capacidad: " + reader["CapacidadMl"].ToString() + " ml";
-                            lblDetallePedido.Text = "Pedido #" + perfumeId + " - " + Convert.ToDateTime(reader["FechaCreacion"]).ToShortDateString();
+
+                            //Se comprueba antes que la fecha sea nula
+                            string fecha = reader["FechaCreacion"] != DBNull.Value ? Convert.ToDateTime(reader["FechaCreacion"]).ToShortDateString() : "Sin fecha";
+                            lblDetallePedido.Text = "Pedido #" + perfumeId + " - " + fecha;
+
                             
                             int envaseId = (int)reader["EnvaseId"];
                             AsignarImagen(envaseId);
@@ -131,5 +135,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                 pictureBox.Image = imageListEnvasesDetalle.Images[index];
             }
         }
+
+        
     }
 }

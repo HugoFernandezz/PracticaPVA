@@ -233,6 +233,7 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
                 lblCapacidad.Text = "Capacidad del envase (" + capacidadMl + " ml)";
                 actualizarProgreso();
+                actualizarPrecioFinal();
             }
         }
 
@@ -261,6 +262,15 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
 
         private void actualizarPrecioFinal()
         {
+            float precioEnvase = 0f;
+
+            if (listViewEnvases.SelectedItems.Count > 0)
+            {
+                Envase envaseSeleccionado = (Envase)listViewEnvases.SelectedItems[0].Tag;
+                precioEnvase = (float)envaseSeleccionado.Precio;
+            }
+
+            lblEnvase.Text = precioEnvase.ToString("0.00") + "€";
 
             //Para poder sumarlo tenemos que limpiar el texto ya que tienen '€'
             float alcohol = float.Parse(lblCAlcohol.Text.Replace("€", ""));
@@ -269,8 +279,9 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
             float sandalo = float.Parse(lblCSandalo.Text.Replace("€", ""));
 
             //Una vez tenemos los datos 'limpios' ya los podemos sumar
-            float total = alcohol + bergamota + lavanda + sandalo;
+            float total = alcohol + bergamota + lavanda + sandalo+ precioEnvase;
             lblCTotal.Text = total.ToString("0.00") + "€";
+
         }
 
         private void btnFinPedido_Click(object sender, EventArgs e)

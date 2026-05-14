@@ -93,6 +93,7 @@
             this.btnHistorial = new System.Windows.Forms.Button();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.circularProgresBar = new PF26_48848727Q_24470742F_77658838M_54800134N.CircularProgresBar();
+            this.lblEnvase = new System.Windows.Forms.Label();
             this.pnlInicio.SuspendLayout();
             this.panelGrafica.SuspendLayout();
             this.panelCoste.SuspendLayout();
@@ -161,6 +162,7 @@
             // 
             this.panelCoste.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.panelCoste.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCoste.Controls.Add(this.lblEnvase);
             this.panelCoste.Controls.Add(this.btnExportar);
             this.panelCoste.Controls.Add(this.btnFinPedido);
             this.panelCoste.Controls.Add(this.lblCTotal);
@@ -783,7 +785,7 @@
             this.pnlSideBar.Controls.Add(this.btnHome);
             this.pnlSideBar.Controls.Add(this.btnHistorial);
             this.pnlSideBar.Location = new System.Drawing.Point(0, 42);
-            this.pnlSideBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSideBar.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSideBar.Name = "pnlSideBar";
             this.pnlSideBar.Size = new System.Drawing.Size(137, 602);
             this.pnlSideBar.TabIndex = 3;
@@ -793,7 +795,7 @@
             this.btnHome.BackgroundImage = global::PF26_48848727Q_24470742F_77658838M_54800134N.Properties.Resources.btnHome;
             this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnHome.Location = new System.Drawing.Point(5, 5);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(127, 87);
             this.btnHome.TabIndex = 3;
@@ -817,7 +819,7 @@
             this.pnlContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(243)))), ((int)(((byte)(236)))));
             this.pnlContenedor.Controls.Add(this.pnlInicio);
             this.pnlContenedor.Location = new System.Drawing.Point(136, 42);
-            this.pnlContenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlContenedor.Margin = new System.Windows.Forms.Padding(4);
             this.pnlContenedor.Name = "pnlContenedor";
             this.pnlContenedor.Size = new System.Drawing.Size(1136, 617);
             this.pnlContenedor.TabIndex = 7;
@@ -835,6 +837,16 @@
             this.circularProgresBar.TabIndex = 4;
             this.circularProgresBar.Text = "circularProgresBar1";
             this.circularProgresBar.Value = 0;
+            // 
+            // lblEnvase
+            // 
+            this.lblEnvase.AutoSize = true;
+            this.lblEnvase.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEnvase.Location = new System.Drawing.Point(165, 37);
+            this.lblEnvase.Name = "lblEnvase";
+            this.lblEnvase.Size = new System.Drawing.Size(49, 19);
+            this.lblEnvase.TabIndex = 17;
+            this.lblEnvase.Text = "0.00€";
             // 
             // FormLaboratorio
             // 
@@ -939,6 +951,7 @@
         private System.Windows.Forms.Panel pnlSideBar;
         private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Label lblEnvase;
     }
 }
 
