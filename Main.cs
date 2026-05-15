@@ -461,5 +461,35 @@ namespace PF26_48848727Q_24470742F_77658838M_54800134N
                 MessageBox.Show("El pedido se guardó, pero hubo un error al simular el email: " + ex.Message, "Aviso Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void cmbCatalogo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnReiniciarMezcla_Click(null, null);
+
+            string seleccion = cmbCatalogo.SelectedItem.ToString();
+
+            //selecciona el primer perfume
+            if (cmbCatalogo.SelectedIndex == 0)
+            {
+                listViewEnvases.Items[0].Selected = true; 
+
+                numericUDAlcohol.Value = 15;
+                numericUDLavanda.Value = 3;
+                numericUDSandalo.Value = 2;
+                numericUDBergamota.Value = 0;
+            }
+            //selecciona el segundo perfume
+            else if (cmbCatalogo.SelectedIndex == 1)
+            {
+                listViewEnvases.Items[3].Selected = true; 
+
+                numericUDAlcohol.Value = 30;
+                numericUDLavanda.Value = 10;
+                numericUDSandalo.Value = 5;
+                numericUDBergamota.Value = 5;
+            }
+        }
+
+        
     }
 }

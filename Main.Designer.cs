@@ -35,6 +35,7 @@
             this.panelGrafica = new System.Windows.Forms.Panel();
             this.lblCapacidad = new System.Windows.Forms.Label();
             this.panelCoste = new System.Windows.Forms.Panel();
+            this.lblEnvase = new System.Windows.Forms.Label();
             this.btnExportar = new System.Windows.Forms.Button();
             this.btnFinPedido = new System.Windows.Forms.Button();
             this.lblCTotal = new System.Windows.Forms.Label();
@@ -89,11 +90,12 @@
             this.imageListEnvases = new System.Windows.Forms.ImageList(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.pnlSideBar = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.cmbCatalogo = new System.Windows.Forms.ComboBox();
             this.btnHome = new System.Windows.Forms.Button();
             this.btnHistorial = new System.Windows.Forms.Button();
             this.pnlContenedor = new System.Windows.Forms.Panel();
             this.circularProgresBar = new PF26_48848727Q_24470742F_77658838M_54800134N.CircularProgresBar();
-            this.lblEnvase = new System.Windows.Forms.Label();
             this.pnlInicio.SuspendLayout();
             this.panelGrafica.SuspendLayout();
             this.panelCoste.SuspendLayout();
@@ -183,6 +185,16 @@
             this.panelCoste.Name = "panelCoste";
             this.panelCoste.Size = new System.Drawing.Size(239, 315);
             this.panelCoste.TabIndex = 5;
+            // 
+            // lblEnvase
+            // 
+            this.lblEnvase.AutoSize = true;
+            this.lblEnvase.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEnvase.Location = new System.Drawing.Point(165, 37);
+            this.lblEnvase.Name = "lblEnvase";
+            this.lblEnvase.Size = new System.Drawing.Size(49, 19);
+            this.lblEnvase.TabIndex = 17;
+            this.lblEnvase.Text = "0.00€";
             // 
             // btnExportar
             // 
@@ -782,6 +794,8 @@
             // pnlSideBar
             // 
             this.pnlSideBar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlSideBar.Controls.Add(this.label32);
+            this.pnlSideBar.Controls.Add(this.cmbCatalogo);
             this.pnlSideBar.Controls.Add(this.btnHome);
             this.pnlSideBar.Controls.Add(this.btnHistorial);
             this.pnlSideBar.Location = new System.Drawing.Point(0, 42);
@@ -789,6 +803,28 @@
             this.pnlSideBar.Name = "pnlSideBar";
             this.pnlSideBar.Size = new System.Drawing.Size(137, 602);
             this.pnlSideBar.TabIndex = 3;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.label32.Location = new System.Drawing.Point(3, 198);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(102, 27);
+            this.label32.TabIndex = 5;
+            this.label32.Text = "Catálogo";
+            // 
+            // cmbCatalogo
+            // 
+            this.cmbCatalogo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCatalogo.Items.AddRange(new object[] {
+            "Green Tea EDT",
+            "Colonio illojuan"});
+            this.cmbCatalogo.Location = new System.Drawing.Point(5, 231);
+            this.cmbCatalogo.Name = "cmbCatalogo";
+            this.cmbCatalogo.Size = new System.Drawing.Size(127, 24);
+            this.cmbCatalogo.TabIndex = 4;
+            this.cmbCatalogo.SelectedIndexChanged += new System.EventHandler(this.cmbCatalogo_SelectedIndexChanged);
             // 
             // btnHome
             // 
@@ -838,16 +874,6 @@
             this.circularProgresBar.Text = "circularProgresBar1";
             this.circularProgresBar.Value = 0;
             // 
-            // lblEnvase
-            // 
-            this.lblEnvase.AutoSize = true;
-            this.lblEnvase.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            this.lblEnvase.Location = new System.Drawing.Point(165, 37);
-            this.lblEnvase.Name = "lblEnvase";
-            this.lblEnvase.Size = new System.Drawing.Size(49, 19);
-            this.lblEnvase.TabIndex = 17;
-            this.lblEnvase.Text = "0.00€";
-            // 
             // FormLaboratorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -881,6 +907,7 @@
             this.panelEnvase.ResumeLayout(false);
             this.panelEnvase.PerformLayout();
             this.pnlSideBar.ResumeLayout(false);
+            this.pnlSideBar.PerformLayout();
             this.pnlContenedor.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -952,6 +979,8 @@
         private System.Windows.Forms.Panel pnlContenedor;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Label lblEnvase;
+        private System.Windows.Forms.ComboBox cmbCatalogo;
+        private System.Windows.Forms.Label label32;
     }
 }
 
